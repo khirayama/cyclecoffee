@@ -11,6 +11,7 @@ import * as pug from 'pug';
 import { config } from 'config';
 import { experiments } from 'experiments';
 import { homeHandler } from 'handlers/homeHandler';
+import { authHandler, privateHandler } from 'handlers/privateHandler';
 import { HypothesisTesting } from 'utils/HypothesisTesting';
 
 // tslint:disable-next-line:no-any
@@ -49,7 +50,7 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .use(cookieParser());
 
-app.get('/', preHandler, homeHandler);
+app.get('/', preHandler, homeHandler).get('/private', preHandler, authHandler, privateHandler);
 
 // Server
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
