@@ -47,6 +47,8 @@ function preHandler(req: express.Request, res: express.Response, next: express.N
   res.cookie('_seg_id', segId, {
     maxAge: 31536000,
     httpOnly: true,
+    // TODO: It's works under https only. Please use it on production.
+    // secure: true,
   });
   req.segId = segId;
   req.hypothesisTesting = hypothesisTesting;
