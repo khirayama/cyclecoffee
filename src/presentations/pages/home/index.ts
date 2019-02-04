@@ -1,12 +1,12 @@
 // tslint:disable:no-any
-import * as firebase from 'firebase/app';
-import 'firebase/auth'; // tslint:disable-line:no-import-side-effect
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { TmpHomePage } from 'presentations/components/TmpHomePage';
 import { IAction, IState } from 'presentations/pages/home/interfaces';
 import { reducer } from 'presentations/pages/home/reducer';
+import { firebaseApp } from 'presentations/utils/firebaseApp';
+import { firebaseAuth } from 'presentations/utils/firebaseAuth';
 import { Provider } from 'utils/Container';
 import { Store } from 'utils/Store';
 
@@ -24,19 +24,12 @@ const initialState: IState = {
 
 const store: Store<IState, IAction> = new Store(initialState, reducer);
 
-const FIREBASE_PROJECT_ID: string = process.env.FIREBASE_PROJECT_ID;
-const FIREBASE_API_KEY: string = process.env.FIREBASE_API_KEY;
-
-const firebaseConfig: {
-  apiKey: string;
-  authDomain: string;
-  databaseURL: string;
-} = {
-  apiKey: FIREBASE_API_KEY,
-  authDomain: `${FIREBASE_PROJECT_ID}.firebaseapp.com`,
-  databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
-};
-firebase.initializeApp(firebaseConfig);
+firebaseApp.init();
+firebaseAuth.init();
+firebaseApp.onAuthStateChanged(async (user: firebase.User) => {
+  const idToken: string = await user.getIdToken();
+  firebaseAuth.setSession(idToken);
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   const el: HTMLElement = window.document.querySelector('.application');
