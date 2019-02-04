@@ -12,20 +12,20 @@ import * as pug from 'pug';
 
 import { config } from 'config';
 import { experiments } from 'experiments';
+import { authHandler } from 'handlers/authHandler';
 import { createSessionHandler } from 'handlers/createSessionHandler';
 import { homeHandler } from 'handlers/homeHandler';
-import { authHandler, privateHandler } from 'handlers/privateHandler';
+import { privateHandler } from 'handlers/privateHandler';
+import { signInHandler } from 'handlers/signInHandler';
+import { signUpHandler } from 'handlers/signUpHandler';
 import { HypothesisTesting } from 'utils/HypothesisTesting';
-
-const FIREBASE_PROJECT_ID: string = process.env.FIREBASE_PROJECT_ID;
-const FIREBASE_API_KEY: string = process.env.FIREBASE_API_KEY;
 
 // tslint:disable-next-line:no-any no-var-requires no-require-imports
 const serviceAccount: any = require('serviceAccountKey.json');
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
-  databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
+  databaseURL: `https://${serviceAccount.project_id}.firebaseio.com`,
 });
 
 // tslint:disable-next-line:no-any
@@ -69,6 +69,8 @@ app
 
 app
   .get('/', preHandler, homeHandler)
+  .get('/signup', preHandler, signUpHandler)
+  .get('/signin', preHandler, signInHandler)
   .get('/private', preHandler, authHandler, privateHandler)
   .post('/sessions', createSessionHandler);
 
