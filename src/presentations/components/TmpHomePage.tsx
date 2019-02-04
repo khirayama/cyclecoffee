@@ -1,7 +1,6 @@
-import * as firebase from 'firebase/app';
-// tslint:disable-next-line:no-import-side-effect
-import 'firebase/auth';
 import * as React from 'react';
+
+import { firebaseAuth } from 'presentations/utils/firebaseAuth';
 
 interface IState {
   email: string;
@@ -19,8 +18,6 @@ export class TmpHomePage extends React.Component<{}, IState> {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
   }
 
   public render(): JSX.Element {
@@ -46,28 +43,27 @@ export class TmpHomePage extends React.Component<{}, IState> {
 
     const email: string = this.state.email;
     const password: string = this.state.password;
-    firebase
-      .auth()
+    firebaseAuth
       .createUserWithEmailAndPassword(email, password)
-      // tslint:disable-next-line:no-any
-      .then((user: any) => {
-        return user.getIdToken().then((idToken: string) => {
-          window.document.cookie = `idToken=${idToken};`;
-          window.location.href = '/private';
+      .then((credential: firebase.auth.UserCredential) => {
+        return credential.user.getIdToken().then((idToken: string) => {
+          return firebaseAuth.setSession(idToken);
         });
       })
-      // tslint:disable-next-line:no-any
-      .catch((signupError: any) => {
-        if (signupError.code === 'auth/email-already-in-use') {
-          firebase
-            .auth()
+      .then(() => {
+        return window.location.assign('/private');
+      })
+      .catch((signUpError: firebase.auth.Error) => {
+        if (signUpError.code === 'auth/email-already-in-use') {
+          firebaseAuth
             .signInWithEmailAndPassword(email, password)
-            // tslint:disable-next-line:no-any
-            .then((user: any) => {
-              return user.getIdToken().then((idToken: string) => {
-                window.document.cookie = `idToken=${idToken};`;
-                window.location.href = '/private';
+            .then((credential: firebase.auth.UserCredential) => {
+              return credential.user.getIdToken().then((idToken: string) => {
+                return firebaseAuth.setSession(idToken);
               });
+            })
+            .then(() => {
+              return window.location.assign('/private');
             });
         }
       });
