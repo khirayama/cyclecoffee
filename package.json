@@ -34,6 +34,8 @@
   "license": "",
   "dependencies": {
     "@types/pug": "2.0.4",
+    "axios": "0.18.0",
+    "body-parser": "1.18.3",
     "classnames": "2.2.6",
     "compression": "1.7.3",
     "cookie-parser": "1.4.3",
@@ -42,7 +44,6 @@
     "express-useragent": "1.0.12",
     "firebase": "5.8.2",
     "firebase-admin": "7.0.0",
-    "got": "9.6.0",
     "morgan": "1.9.1",
     "preact-render-to-string": "4.1.0",
     "pug": "2.0.3",
