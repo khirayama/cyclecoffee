@@ -4,32 +4,22 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
 import { SampleComponent } from 'presentations/components/SampleComponent';
-import { IAction, IState } from 'presentations/pages/home/interfaces';
-import { reducer } from 'presentations/pages/home/reducer';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
-import { Provider } from 'utils/Container';
-import { Store } from 'utils/Store';
 
-export function authHandler(req: express.Request, res: express.Response, next: express.Next): void {
-  const sessionCookie: string = req.cookies.session || '';
-  firebaseAdmin
-    .auth()
-    // TODO: It's too slow. I should make sure that it is ok to set false.
-    // .verifySessionCookie(sessionCookie, true)
-    .verifySessionCookie(sessionCookie, false)
-    .then((decodedClaims: firebaseAdmin.auth.DecodedIdToken) => {
-      next();
-    })
-    .catch((error: Error) => {
-      res.redirect('/');
-    });
+interface IState {
+}
+
+function initializeState(): Promise<IState> {
+  const initialState: IState = {
+  };
+
+  // tslint:disable-next-line:no-any
+  return new Promise((resolve: any) => {
+    resolve(initialState);
+  });
 }
 
 export function privateHandler(req: express.Request, res: express.Response): void {
-  const initialState: IState = {
-    count: 0,
-  };
-  const store: Store<IState, IAction> = new Store(initialState, reducer);
 
   const props: ILayoutProps = generateLayoutProps();
   props.path = req.originalUrl;
@@ -39,7 +29,15 @@ export function privateHandler(req: express.Request, res: express.Response): voi
   props.image = 'TODO';
   props.scripts = ['/pages/private/bundle.js'];
   props.stylesheets = ['/pages/private/index.css'];
-  props.children = renderToString(React.createElement(Provider, { store }, React.createElement(SampleComponent)));
+  props.children = renderToString(React.createElement(SampleComponent));
+
+  const db: firebaseAdmin.firestore.Firestore = firebaseAdmin.firestore();
+  db.collection('users')
+    .doc(req.uid)
+    .get()
+    .then((result: firebaseAdmin.firestore.DocumentSnapshot) => {
+      console.log(result.data());
+    });
 
   res.send(req.compiledFunction({ props }));
 }
