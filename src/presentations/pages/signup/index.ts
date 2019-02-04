@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { HomePage } from 'presentations/components/HomePage';
+import { SignUpPage } from 'presentations/components/SignUpPage';
 import { firebaseApp } from 'presentations/utils/firebaseApp';
 import { firebaseAuth } from 'presentations/utils/firebaseAuth';
 
@@ -14,5 +14,5 @@ firebaseApp.onAuthStateChanged(async (user: firebase.User) => {
 
 window.addEventListener('DOMContentLoaded', () => {
   const el: HTMLElement = window.document.querySelector('.application');
-  ReactDOM.render(React.createElement(HomePage), el);
+  ReactDOM.render(React.createElement(SignUpPage), el);
 });
