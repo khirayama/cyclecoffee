@@ -1,10 +1,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+import * as bodyParser from 'body-parser';
 import * as compression from 'compression';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 import * as useragent from 'express-useragent';
+import * as firebaseAdmin from 'firebase-admin';
 import * as logger from 'morgan';
 import * as pug from 'pug';
 
@@ -14,6 +16,17 @@ import { createSessionHandler } from 'handlers/createSessionHandler';
 import { homeHandler } from 'handlers/homeHandler';
 import { authHandler, privateHandler } from 'handlers/privateHandler';
 import { HypothesisTesting } from 'utils/HypothesisTesting';
+
+const FIREBASE_PROJECT_ID: string = process.env.FIREBASE_PROJECT_ID;
+const FIREBASE_API_KEY: string = process.env.FIREBASE_API_KEY;
+
+// tslint:disable-next-line:no-any no-var-requires no-require-imports
+const serviceAccount: any = require('serviceAccountKey.json');
+
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(serviceAccount),
+  databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
+});
 
 // tslint:disable-next-line:no-any
 const compiledFunction: (options: { props: any }) => void = pug.compileFile(
