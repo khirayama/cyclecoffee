@@ -5,8 +5,6 @@ import * as React from 'react';
 interface IUserFormProps {
   name: string;
   birthday: string;
-  email: string;
-  tel: string;
   zipCode: string;
   address: string;
   onChange: UserForm['onChange'];
@@ -32,14 +30,6 @@ class UserForm extends React.Component<IUserFormProps, {}> {
           value={this.props.birthday}
           onChange={this.onChange}
         />
-        <input
-          type="text"
-          name="email"
-          placeholder="メールアドレス"
-          value={this.props.email}
-          onChange={this.onChange}
-        />
-        <input type="text" name="tel" placeholder="電話番号" value={this.props.tel} onChange={this.onChange} />
         <input type="text" name="zipCode" placeholder="郵便番号" value={this.props.zipCode} onChange={this.onChange} />
         <input type="text" name="address" placeholder="住所" value={this.props.address} onChange={this.onChange} />
         <button>Submit</button>
@@ -59,8 +49,6 @@ class UserForm extends React.Component<IUserFormProps, {}> {
 interface IUserFormContainerState {
   name: string;
   birthday: string;
-  email: string;
-  tel: string;
   zipCode: string;
   address: string;
 }
@@ -72,8 +60,6 @@ class UserFormContainer extends React.Component<{}, IUserFormContainerState> {
     this.state = {
       name: '',
       birthday: '',
-      email: '',
-      tel: '',
       zipCode: '',
       address: '',
     };
@@ -87,8 +73,6 @@ class UserFormContainer extends React.Component<{}, IUserFormContainerState> {
       <UserForm
         name={this.state.name}
         birthday={this.state.birthday}
-        email={this.state.email}
-        tel={this.state.tel}
         zipCode={this.state.zipCode}
         address={this.state.address}
         onChange={this.onChange}
