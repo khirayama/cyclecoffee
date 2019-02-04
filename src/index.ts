@@ -10,6 +10,7 @@ import * as pug from 'pug';
 
 import { config } from 'config';
 import { experiments } from 'experiments';
+import { createSessionHandler } from 'handlers/createSessionHandler';
 import { homeHandler } from 'handlers/homeHandler';
 import { authHandler, privateHandler } from 'handlers/privateHandler';
 import { HypothesisTesting } from 'utils/HypothesisTesting';
@@ -48,9 +49,13 @@ app
   .use(compression({ level: 9 }))
   .use(express.static(path.join(__dirname, 'assets')))
   .use(express.static(path.join(__dirname, 'public')))
+  .use(bodyParser.json())
   .use(cookieParser());
 
-app.get('/', preHandler, homeHandler).get('/private', preHandler, authHandler, privateHandler);
+app
+  .get('/', preHandler, homeHandler)
+  .get('/private', preHandler, authHandler, privateHandler)
+  .post('/sessions', createSessionHandler);
 
 // Server
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
