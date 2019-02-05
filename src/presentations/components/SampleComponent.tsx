@@ -32,7 +32,7 @@ class UserForm extends React.Component<IUserFormProps, {}> {
         />
         <input type="text" name="zipCode" placeholder="郵便番号" value={this.props.zipCode} onChange={this.onChange} />
         <input type="text" name="address" placeholder="住所" value={this.props.address} onChange={this.onChange} />
-        <button>Submit</button>
+        <button>更新</button>
       </form>
     );
   }
