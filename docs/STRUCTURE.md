@@ -19,6 +19,14 @@ user_orders[]:
     orders[]:
       [order_id]: [timestamp]
 
+orders[]:
+  [order_id]:
+    uid: [uid]
+    coffee_beans[]:
+      [coffee_bean_id]: true
+    destination:
+    shipping_at:
+
 plans[]:
   [plan_key]:
     name:
@@ -29,14 +37,6 @@ plans[]:
 // price は税込
 // shipping は基本的に月2回
 // 1pack = 100g
-
-orders[]:
-  [order_id]:
-    uid: [uid]
-    coffee_beans[]:
-      [coffee_bean_id]: true
-    destination:
-    shipping_at:
 
 coffee_beans[]:
   [coffee_bean_id]:
