@@ -8,6 +8,35 @@
 - スキップや豆の変更は細かくできるように
 - スキップ時にはスナックを
 
+## SERVICE
+
+- 固定回数の配送にしないと死にそう
+- next_planに関しては暗黙的に月間切り替え
+- packは暗黙的に1パック100g
+- 初月は無料でいんじゃない？その分、日付はどうしようかな
+  - 曜日ベースの方がうれしいよなぁ
+  - 曜日ベース: 第1、第3木曜に発送とか
+    - 最大で間隔が3週間空いてしまう(21日)
+  - 日付ベース: 毎月1日、15日発送とか
+    - 最大でも16日しか間が開かない
+    - 年末年始とか関係なくなる
+- チラシというかお手紙みたいなのは入れたいな
+  - 初回挨拶
+  - ロードマップ
+- orderは毎月バッチで処理する
+  - 確定日の告知
+  - is_next_order_skipをfalseに戻す
+- coffee_bean.is_activeがfalseの時は、fallback_coffee_beanを再帰的に当てる
+- coffee_bean.is_activeは月初に確定
+- ってみると日付ベース配送がバランスいいか
+
+## 想定TODO
+
+- 01日 1st 配送開始
+- 10日 2nd オーダー確定 / 次回のcoffee_bean.is_active確定
+- 15日 2nd 配送開始
+- 24日 1nd オーダー確定 / 次回のcoffee_bean.is_active確定
+
 ## CONCEPT
 
 - ポストに入る
@@ -27,3 +56,11 @@
 - 設定
   - 豆の入れ替え
   - スキップ
+
+-import { TmpHomePage } from 'presentations/components/TmpHomePage';
+-import { IAction, IState } from 'presentations/pages/home/interfaces';
+-import { reducer } from 'presentations/pages/home/reducer';
++import { HomePage } from 'presentations/components/HomePage';
+ import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
+-import { Provider } from 'utils/Container';
+-import { Store } from 'utils/Store';

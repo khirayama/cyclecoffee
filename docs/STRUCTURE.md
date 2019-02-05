@@ -1,6 +1,3 @@
-match /users/{uid} {
-  allow read, write: if request.auth.uid == uid;
-}
 users[]:
   [uid]:
     name:
@@ -8,32 +5,18 @@ users[]:
     zip_code:
     address:
 
-match /user_status/{uid} {
-  allow read: if request.auth.uid == uid;
-}
-user_status[]:
+user_subscriptions[]:
   [uid]:
     current_plan: [plan_key]
+    next_plan: [plan_key]
     trail: [until_at]
 
-match /user_status/{uid} {
-  allow read, write: if request.auth.uid == uid;
-}
-user_next_status[]:
-  [uid]:
-    plan: [plan_key]
-    is_next_order_skip:
-
-match /user_orders/{uid} {
-  allow read: if request.auth.uid == uid;
-}
 user_orders[]:
   [uid]:
-    [order_id]: [timestamp]
+    is_next_order_skip:
+    orders[]:
+      [order_id]: [timestamp]
 
-match /plans {
-  allow read: if true;
-}
 plans[]:
   [plan_key]:
     name:
@@ -42,9 +25,6 @@ plans[]:
     number_of_pack:
     amount_of_a_pack:
 
-match /orders {
-  allow read: if request.auth.uid == resource.data.uid;
-}
 orders[]:
   [order_id]:
     uid: [uid]
@@ -53,9 +33,6 @@ orders[]:
     destination:
     shipping_at:
 
-match /coffee_beans {
-  allow read: if true;
-}
 coffee_beans[]:
   [coffee_bean_id]:
     name:
@@ -64,9 +41,6 @@ coffee_beans[]:
     is_active: // 在庫状況などによる注文受付中か
     fallback_coffee_bean: [coffee_bean_id]
 
-match /shops {
-  allow read: if true;
-}
 shops[]:
   [shop_id]:
     name:
@@ -146,45 +120,4 @@ shops[]:
   instagram: 'https://www.instagram.com/saredocoffee/',
   google_maps: 'https://goo.gl/maps/jfZhdSXprhn",
   coffee_beans: ['gohobi_key', 'horoniga_key'],
-}
-
-## メモ
-
-- 固定回数の配送にしないと死にそう
-- next_planに関しては暗黙的に月間切り替え
-- packは暗黙的に1パック100g
-- 初月は無料でいんじゃない？その分、日付はどうしようかな
-  - 曜日ベースの方がうれしいよなぁ
-  - 曜日ベース: 第1、第3木曜に発送とか
-    - 最大で間隔が3週間空いてしまう(21日)
-  - 日付ベース: 毎月1日、15日発送とか
-    - 最大でも16日しか間が開かない
-    - 年末年始とか関係なくなる
-- チラシというかお手紙みたいなのは入れたいな
-  - 初回挨拶
-  - ロードマップ
-- orderは毎月バッチで処理する
-  - 確定日の告知
-  - is_next_order_skipをfalseに戻す
-- coffee_bean.is_activeがfalseの時は、fallback_coffee_beanを再帰的に当てる
-- coffee_bean.is_activeは月初に確定
-- ってみると日付ベース配送がバランスいいか
-
-## 想定TODO
-
-- 01日 1st 配送開始
-- 10日 2nd オーダー確定 / 次回のcoffee_bean.is_active確定
-- 15日 2nd 配送開始
-- 24日 1nd オーダー確定 / 次回のcoffee_bean.is_active確定
-
-## Firestoreルール
-
-Ref: https://firebase.google.com/docs/firestore/security/secure-data?hl=ja
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{uid} {
-      allow read, write: if request.auth.uid == uid;
-    }
-  }
 }
