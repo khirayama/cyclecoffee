@@ -29,6 +29,7 @@
 - coffee_bean.is_activeがfalseの時は、fallback_coffee_beanを再帰的に当てる
 - coffee_bean.is_activeは月初に確定
 - ってみると日付ベース配送がバランスいいか
+- 入会月/退会月の対応考える
 
 ## 想定TODO
 

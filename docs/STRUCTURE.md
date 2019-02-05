@@ -10,6 +10,8 @@ user_subscriptions[]:
     current_plan: [plan_key]
     next_plan: [plan_key]
     trail: [until_at]
+// 翌月1日に切り替える
+// 毎月1日支払い
 
 user_orders[]:
   [uid]:
@@ -20,10 +22,13 @@ user_orders[]:
 plans[]:
   [plan_key]:
     name:
-    price: // 税込
+    price:
     number_of_shipping:
     number_of_pack:
     amount_of_a_pack:
+// price は税込
+// shipping は基本的に月2回
+// 1pack = 100g
 
 orders[]:
   [order_id]:
@@ -38,8 +43,10 @@ coffee_beans[]:
     name:
     description:
     shop: [shop_id]
-    is_active: // 在庫状況などによる注文受付中か
+    is_active:
     fallback_coffee_bean: [coffee_bean_id]
+// is_active は在庫状況などによる注文受付中か
+// fallback_coffee_bean は is_active が false の時に代用する豆
 
 shops[]:
   [shop_id]:
