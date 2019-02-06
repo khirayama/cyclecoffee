@@ -47,21 +47,15 @@
 ## PAGE and TRANSITION
 
 - トップ
+- ショップ一覧
+  - 豆の入れ替え
+- ショップ詳細
+  - 豆の入れ替え
+- コーヒー豆一覧
+- コーヒー豆詳細
 - プライバシーポリシー
 - 特定商取引法
 - サイトマップ
-- コーヒー豆一覧
-  - 豆の入れ替え
-- コーヒー豆詳細
-  - 豆の入れ替え
-- 設定
+- プロフィール
   - 豆の入れ替え
   - スキップ
-
--import { TmpHomePage } from 'presentations/components/TmpHomePage';
--import { IAction, IState } from 'presentations/pages/home/interfaces';
--import { reducer } from 'presentations/pages/home/reducer';
-+import { HomePage } from 'presentations/components/HomePage';
- import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
--import { Provider } from 'utils/Container';
--import { Store } from 'utils/Store';
