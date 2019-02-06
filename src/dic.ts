@@ -30,20 +30,20 @@ const dictionary: IDicTree = {
     HomePage: {
       Header: {
         Content: {
-          Navigation: {
-            service: {
-              ja: 'サービス',
-            },
-            coffee_beans: {
-              ja: 'コーヒー豆',
-            },
-            shops: {
-              ja: 'ショップ',
-            },
-          },
           signin: {
             ja: 'サインイン',
           },
+          signup: {
+            ja: 'サインアップ',
+          },
+        },
+      },
+      Navigation: {
+        service: {
+          ja: 'サービス',
+        },
+        coffee_beans: {
+          ja: 'コーヒー豆',
         },
       },
     },
