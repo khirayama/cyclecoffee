@@ -1,0 +1,21 @@
+@import 'application/vars';
+
+.HomePage {
+  .HomePage--Header {
+    border-bottom: $border;
+
+    .HomePage--Header--Content {
+      padding: 12px;
+      width: 100%;
+      max-width: $width-content;
+      margin: 0 auto;
+
+      h1 {
+        /* TODO: update */
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: -0.3px;
+      }
+    }
+  }
+}

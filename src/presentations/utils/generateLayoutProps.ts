@@ -11,7 +11,7 @@ export interface ILayoutProps {
   url: string;
   path: string;
   name: string;
-  keywords: string[];
+  keywords: string;
   image: string;
   facebookPageUrl: string;
   twitterCardType: string;
@@ -34,12 +34,12 @@ export function generateLayoutProps(): ILayoutProps {
     facebookPageUrl: config.facebookPageUrl,
     twitterCardType: config.twitterCardType,
     twitterAccount: config.twitterAccount,
-    path: '',
     pageType: 'cafe',
+    path: '',
     // content meta
     title: '',
     description: '',
-    keywords: [],
+    keywords: '',
     image: '',
     children: '',
     state: {},
