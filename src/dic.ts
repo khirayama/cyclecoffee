@@ -28,8 +28,23 @@ const dictionary: IDicTree = {
   },
   components: {
     HomePage: {
-      description: {
-        ja: '美味しいコーヒー を日常に。<br>OK',
+      Header: {
+        Content: {
+          Navigation: {
+            service: {
+              ja: 'サービス',
+            },
+            coffee_beans: {
+              ja: 'コーヒー豆',
+            },
+            shops: {
+              ja: 'ショップ',
+            },
+          },
+          signin: {
+            ja: 'サインイン',
+          },
+        },
       },
     },
   },

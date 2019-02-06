@@ -1,4 +1,4 @@
-// tslint:disable:react-no-dangerous-html
+// tslint:disable:react-a11y-anchors
 import * as React from 'react';
 
 import { dic } from 'dic';
@@ -9,16 +9,28 @@ export class HomePage extends React.Component<{}, {}> {
       <div className="HomePage">
         <header className="HomePage--Header">
           <div className="HomePage--Header--Content">
-            <p dangerouslySetInnerHTML={{ __html: dic.t('components.HomePage.description') }} />
-            <h1>{dic.t('name')}</h1>
+            <h1 className="HomePage--Header--Content--Heading">{dic.t('name')}</h1>
+            <nav className="HomePage--Header--Content--Navigation">
+              <ul className="HomePage--Header--Content--Navigation--List">
+                <li className="HomePage--Header--Content--Navigation--List--Item">
+                  <a href="/services">{dic.t('components.HomePage.Header.Content.Navigation.service')}</a>
+                </li>
+                <li className="HomePage--Header--Content--Navigation--List--Item">
+                  <a href="/coffee-beans">{dic.t('components.HomePage.Header.Content.Navigation.coffee_beans')}</a>
+                </li>
+                <li className="HomePage--Header--Content--Navigation--List--Item">
+                  <a href="/shops">{dic.t('components.HomePage.Header.Content.Navigation.shops')}</a>
+                </li>
+              </ul>
+            </nav>
+            <div className="HomePage--Header--Content--SignIn">
+              <a href="/signin" className="HomePage--Header--Content--SignIn--Link">
+                {dic.t('components.HomePage.Header.Content.signin')}
+              </a>
+            </div>
           </div>
         </header>
-        <p>
-          <a href="/signup">Sign Up</a>
-        </p>
-        <p>
-          <a href="/signin">Sign In</a>
-        </p>
+        <div className="HomePage--MainVisual" />
       </div>
     );
   }
