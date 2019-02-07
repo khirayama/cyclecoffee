@@ -98,6 +98,13 @@ export class HomePage extends React.Component<{}, {}> {
             </div>
           </div>
         </header>
+        <h2>
+          素敵なコーヒーとの出会いを。
+          <br />
+          あなたの過ごし方のパートナーに。
+          <br />
+          コーヒー豆定期便、お届けします。
+        </h2>
         <nav className="HomePage--Navigation">
           <ul className="HomePage--Navigation--List">
             <li className="HomePage--Navigation--List--Item">
@@ -108,6 +115,13 @@ export class HomePage extends React.Component<{}, {}> {
             </li>
           </ul>
         </nav>
+        <h2>cycle coffeeが届くまで</h2>
+        <ul>
+          <li>ステップ1</li>
+          <li>ステップ2</li>
+          <li>ステップ3</li>
+        </ul>
+        <h2>月に2度、新鮮なコーヒー豆をお届けます。お好みの量をお選びください。</h2>
         <div className="HomePage--Plan">
           <ul className="HomePage--Plan--List">
             {plans.map((plan: IPlan) => {
@@ -124,6 +138,7 @@ export class HomePage extends React.Component<{}, {}> {
             })}
           </ul>
         </div>
+        <h2>コーヒー豆をお選びいただけます</h2>
         <div className="HomePage--CoffeeBeans">
           <ul className="HomePage--CoffeeBeans--List">
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
