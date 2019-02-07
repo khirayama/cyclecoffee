@@ -1,7 +1,5 @@
-// tslint:disable:react-a11y-anchors
+// tslint:disable:react-a11y-anchors react-no-dangerous-html
 import * as React from 'react';
-
-import { dic } from 'dic';
 
 interface IPlan {
   id: string;
@@ -85,16 +83,12 @@ export class HomePage extends React.Component<{}, {}> {
       <div className="HomePage">
         <header className="HomePage--Header">
           <div className="HomePage--Header--Content">
-            <h1 className="HomePage--Header--Content--Heading">{dic.t('name')}</h1>
+            <h1 className="HomePage--Header--Content--Heading">cycle coffee</h1>
             <div className="HomePage--Header--Content--SignIn">
-              <a href="/signin" className="HomePage--Header--Content--SignIn--Link">
-                {dic.t('components.HomePage.Header.Content.signin')}
-              </a>
+              <a href="/signin" className="HomePage--Header--Content--SignIn--Link">サインイン</a>
             </div>
             <div className="HomePage--Header--Content--SignUp">
-              <a href="/signup" className="HomePage--Header--Content--SignUp--Link">
-                {dic.t('components.HomePage.Header.Content.signup')}
-              </a>
+              <a href="/signup" className="HomePage--Header--Content--SignUp--Link">サインアップ</a>
             </div>
           </div>
         </header>
@@ -112,10 +106,10 @@ export class HomePage extends React.Component<{}, {}> {
         <nav className="HomePage--Navigation">
           <ul className="HomePage--Navigation--List">
             <li className="HomePage--Navigation--List--Item">
-              <a href="#services">{dic.t('components.HomePage.Navigation.service')}</a>
+              <a href="#services">サービス</a>
             </li>
             <li className="HomePage--Navigation--List--Item">
-              <a href="#coffee-beans">{dic.t('components.HomePage.Navigation.coffee_beans')}</a>
+              <a href="#coffee-beans">コーヒー豆</a>
             </li>
           </ul>
         </nav>

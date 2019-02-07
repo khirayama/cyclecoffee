@@ -1,5 +1,4 @@
 import { config } from 'config';
-import { dic } from 'dic';
 
 export interface ILayoutProps {
   env: string;
@@ -27,8 +26,8 @@ export function generateLayoutProps(): ILayoutProps {
   return {
     env: process.env.NODE_ENV || 'development',
     gaCode: config.gaCode,
-    author: dic.t('author'),
-    name: dic.t('name'),
+    author: 'cycle coffee',
+    name: 'cycle coffee',
     baseUrl: config.url,
     url: config.url,
     facebookPageUrl: config.facebookPageUrl,
