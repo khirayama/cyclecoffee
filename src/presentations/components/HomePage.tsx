@@ -98,13 +98,17 @@ export class HomePage extends React.Component<{}, {}> {
             </div>
           </div>
         </header>
-        <h2>
-          素敵なコーヒーとの出会いを。
-          <br />
-          あなたの過ごし方のパートナーに。
-          <br />
-          コーヒー豆定期便、お届けします。
-        </h2>
+        <div className="HomePage--Message">
+          <div className="HomePage--Message--Content">
+            <h2>
+              素敵なコーヒーとの出会いを。
+              <br />
+              あなたの過ごし方のパートナーに。
+              <br />
+              コーヒー豆定期便、お届けします。
+            </h2>
+          </div>
+        </div>
         <nav className="HomePage--Navigation">
           <ul className="HomePage--Navigation--List">
             <li className="HomePage--Navigation--List--Item">
@@ -115,12 +119,16 @@ export class HomePage extends React.Component<{}, {}> {
             </li>
           </ul>
         </nav>
-        <h2>cycle coffeeが届くまで</h2>
-        <ul>
-          <li>ステップ1</li>
-          <li>ステップ2</li>
-          <li>ステップ3</li>
-        </ul>
+        <div className="HomePage--Steps">
+          <div className="HomePage--Steps--Content">
+            <h2 className="HomePage--Steps--Content--Heading">cycle coffeeが届くまで</h2>
+            <ul className="HomePage--Steps--Content--List">
+              <li className="HomePage--Steps--Content--List--Item">ステップ1</li>
+              <li className="HomePage--Steps--Content--List--Item">ステップ2</li>
+              <li className="HomePage--Steps--Content--List--Item">ステップ3</li>
+            </ul>
+          </div>
+        </div>
         <h2>月に2度、新鮮なコーヒー豆をお届けます。お好みの量をお選びください。</h2>
         <div className="HomePage--Plan">
           <ul className="HomePage--Plan--List">
