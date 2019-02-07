@@ -64,33 +64,126 @@
   }
 
   .HomePage--Steps {
-    .HomePage--Steps {
+    padding: 24px 0 48px;
+
+    .HomePage--Steps--Content {
       width: 100%;
       max-width: $width-content;
       margin: 0 auto;
+
+      .HomePage--Steps--Content--Heading {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 8px 0 32px;
+      }
+
+      .HomePage--Steps--Content--List {
+        display: flex;
+
+        .HomePage--Steps--Content--List--Item {
+          display: inline-block;
+          flex: 1;
+          padding: 12px;
+
+          .HomePage--Steps--Content--List--Item--Step {
+            width: 100%;
+            height: 100%;
+            border: $border;
+            padding: 12px;
+
+            h3 {
+              margin-bottom: 12px;
+            }
+          }
+        }
+      }
     }
   }
 
-  .HomePage--Plan {
-    .HomePage--Plan--List {
-      .HomePage--Plan--List--Item {
-        display: inline-block;
-        border: $border;
-        width: 280px;
+  .HomePage--Plans {
+    padding: 24px 0 48px;
+    background: $color-background;
+
+    .HomePage--Plans--Content {
+      width: 100%;
+      max-width: $width-content;
+      margin: 0 auto;
+
+      .HomePage--Plans--Content--Heading {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 8px 0 32px;
+      }
+
+      .HomePage--Plans--Content--List {
+        display: flex;
+
+        .HomePage--Plans--Content--List--Item {
+          display: inline-block;
+          flex: 1;
+          padding: 12px;
+
+          .HomePage--Plans--Content--List--Item--Plan {
+            width: 100%;
+            height: 100%;
+            border: $border;
+            padding: 12px;
+            background: $color-white;
+
+            h3 {
+              margin-bottom: 12px;
+            }
+          }
+        }
       }
     }
   }
 
   .HomePage--CoffeeBeans {
-    .HomePage--CoffeeBeans--List {
-      .HomePage--CoffeeBeans--List--Item {
-        display: inline-block;
-        border: $border;
-        width: 280px;
+    padding: 24px 0 48px;
 
-        img {
-          width: 100%;
-          height: auto;
+    .HomePage--CoffeeBeans--Content {
+      width: 100%;
+      max-width: $width-content;
+      margin: 0 auto;
+
+      .HomePage--CoffeeBeans--Content--Heading {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 8px 0 32px;
+      }
+
+      .HomePage--CoffeeBeans--Content--List {
+        display: flex;
+
+        .HomePage--CoffeeBeans--Content--List--Item {
+          display: inline-block;
+          flex: 1;
+          padding: 12px;
+
+          .HomePage--CoffeeBeans--Content--List--Item--CoffeeBean {
+            width: 100%;
+            height: 100%;
+            border: $border;
+            padding: 12px;
+            background: $color-white;
+
+            h3 {
+              margin-bottom: 12px;
+            }
+
+            img {
+              width: 100%;
+              height: auto;
+              vertical-align: top;
+            }
+          }
+          .HomePage--CoffeeBeans--Content--List--Item--Roaster {
+            img {
+              width: auto;
+              height: 2rem;
+            }
+          }
         }
       }
     }
