@@ -114,16 +114,6 @@ export class HomePage extends React.Component<{}, {}> {
             </h2>
           </div>
         </div>
-        <nav className="HomePage--Navigation">
-          <ul className="HomePage--Navigation--List">
-            <li className="HomePage--Navigation--List--Item">
-              <a href="#services">サービス</a>
-            </li>
-            <li className="HomePage--Navigation--List--Item">
-              <a href="#coffee-beans">コーヒー豆</a>
-            </li>
-          </ul>
-        </nav>
         <div className="HomePage--Steps">
           <div className="HomePage--Steps--Content">
             <h2 className="HomePage--Steps--Content--Heading">cycle coffeeが届くまで</h2>
