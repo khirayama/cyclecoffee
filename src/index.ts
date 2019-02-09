@@ -10,6 +10,7 @@ import * as logger from 'morgan';
 import * as pug from 'pug';
 
 import { config } from 'config';
+import { coffeeBeanShowHandler } from 'handlers/coffeeBeanShowHandler';
 import { homeHandler } from 'handlers/homeHandler';
 
 // tslint:disable-next-line:no-any no-var-requires no-require-imports
@@ -40,7 +41,7 @@ app
   .use(cookieParser())
   .use(preHandler);
 
-app.get('/', homeHandler);
+app.get('/', homeHandler).get('/coffee-beans/:id', coffeeBeanShowHandler);
 
 // Server
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
