@@ -24,7 +24,7 @@ export class CoffeeBeanShowPage extends React.Component<{}, {}> {
       imageUrl: '/images/shop_sample.webp',
     };
 
-    const coffeeBeans: ICoffeeBean = {
+    const coffeeBean: ICoffeeBean = {
       id: 'gohobi',
       name: 'ごほうびブレンド',
       description: 'ごほうびブレンド説明',
@@ -34,7 +34,9 @@ export class CoffeeBeanShowPage extends React.Component<{}, {}> {
 
     return (
       <div className="CoffeeBeanShowPage">
-        <h1>Coffee Bean Show Page</h1>
+        <h1>{coffeeBean.name}</h1>
+        <h2>{shop.name}</h2>
+        <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
       </div>
     );
   }
