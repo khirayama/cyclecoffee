@@ -36,7 +36,10 @@ export class CoffeeBeanShowPage extends React.Component<{}, {}> {
       <div className="CoffeeBeanShowPage">
         <div className="CoffeeBeanShowPage--CoffeeBean">
           <h1>{coffeeBean.name}</h1>
-          <h2>{shop.name}</h2>
+          <h2>
+            <img src={shop.imageUrl} alt={shop.name} />
+            {shop.name}
+          </h2>
           <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
         </div>
       </div>
