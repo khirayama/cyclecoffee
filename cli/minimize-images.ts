@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 import * as imagemin from 'imagemin';
 import * as imageminJpegtran from 'imagemin-jpegtran';
-import * as imageminPngquant from 'imagemin-pngquant';
+import imageminPngquant from 'imagemin-pngquant';
 import * as imageminWebp from 'imagemin-webp';
 
 const ROOT_DIR: string = './materials';
@@ -38,7 +38,7 @@ function compressImage(filePath: string): void {
   imagemin([filePath], dist, {
     plugins: [
       imageminPngquant({
-        quality: '60-70',
+        quality: [0.6, 0.7],
       }),
     ],
   });
