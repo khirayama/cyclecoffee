@@ -1,28 +1,9 @@
 // tslint:disable:react-a11y-anchors react-no-dangerous-html
 import * as React from 'react';
 
-interface IPlan {
-  id: string;
-  name: string;
-  price: number;
-  numberOfShipping: number;
-  numberOfPack: number;
-  amountOfPack: number;
-}
-
-interface IShop {
-  id: string;
-  name: string;
-  imageUrl: string;
-}
-
-interface ICoffeeBean {
-  id: string;
-  name: string;
-  description: string;
-  shopId: string;
-  imageUrl: string;
-}
+import { ICoffeeBean, IPlan, IShop } from 'interfaces';
+import { Footer } from 'presentations/components/Footer';
+import { Header } from 'presentations/components/Header';
 
 export class HomePage extends React.Component<{}, {}> {
   // tslint:disable:max-func-body-length
@@ -88,21 +69,7 @@ export class HomePage extends React.Component<{}, {}> {
 
     return (
       <div className="HomePage">
-        <header className="HomePage--Header">
-          <div className="HomePage--Header--Content">
-            <h1 className="HomePage--Header--Content--Heading">cycle coffee</h1>
-            <div className="HomePage--Header--Content--SignIn">
-              <a href="/signin" className="HomePage--Header--Content--SignIn--Link">
-                サインイン
-              </a>
-            </div>
-            <div className="HomePage--Header--Content--SignUp">
-              <a href="/signup" className="HomePage--Header--Content--SignUp--Link">
-                サインアップ
-              </a>
-            </div>
-          </div>
-        </header>
+        <Header />
         <div className="HomePage--Message">
           <div className="HomePage--Message--Content">
             <h2>
@@ -196,12 +163,7 @@ export class HomePage extends React.Component<{}, {}> {
             </ul>
           </div>
         </div>
-        <footer>
-          <a href="/law">特定商取引に関する表記</a>
-          <a href="/privacy">プライバシーポリシー</a>
-          <a href="/terms">サービス利用規約</a>
-          <p>&copy; cycle coffee</p>
-        </footer>
+        <Footer />
       </div>
     );
   }

@@ -2,10 +2,10 @@ import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { CoffeeBeanShowPage } from 'presentations/components/CoffeeBeanShowPage';
+import { CoffeeBeanPage } from 'presentations/components/CoffeeBeanPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 
-export function coffeeBeanShowHandler(req: express.Request, res: express.Response): void {
+export function coffeeBeanHandler(req: express.Request, res: express.Response): void {
   const props: ILayoutProps = generateLayoutProps();
   props.path = req.originalUrl;
   props.title = 'cycle coffee | コーヒー定期便 | ポストで受け取り、ゆったりおウチで';
@@ -14,7 +14,7 @@ export function coffeeBeanShowHandler(req: express.Request, res: express.Respons
   props.image = 'TODO';
   props.scripts = ['/pages/coffee-beans/show/bundle.js'];
   props.stylesheets = ['/pages/coffee-beans/show/index.css'];
-  props.children = renderToString(React.createElement(CoffeeBeanShowPage));
+  props.children = renderToString(React.createElement(CoffeeBeanPage));
 
   res.send(req.compiledFunction({ props }));
 }

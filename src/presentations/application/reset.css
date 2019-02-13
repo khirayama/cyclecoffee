@@ -81,7 +81,8 @@ img {
 }
 
 input,
-textarea {
+textarea,
+button {
   font-size: inherit;
   color: inherit;
 }

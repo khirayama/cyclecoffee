@@ -1,0 +1,43 @@
+@import 'application/vars';
+@import 'components/Header';
+@import 'components/Footer';
+
+.ShopPage {
+  .ShopPage--CoffeeBean {
+    padding: 16px 8px;
+    width: 100%;
+    max-width: $width-content;
+    margin: 0 auto;
+
+    .ShopPage--CoffeeBean--ShopName {
+      img {
+        width: auto;
+        height: 60px;
+      }
+      span {
+        line-height: 60px;
+        margin-left: 12px;
+      }
+    }
+
+    .ShopPage--CoffeeBean--SelectButton {
+      text-align: right;
+
+      button {
+        border-radius: $radius;
+        background: $color-text-attention;
+        color: $color-white;
+        padding: 12px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  h3 {
+    margin: 24px 0;
+  }
+
+  img {
+    width: 100%;
+  }
+}

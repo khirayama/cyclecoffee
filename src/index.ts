@@ -10,8 +10,9 @@ import * as logger from 'morgan';
 import * as pug from 'pug';
 
 import { config } from 'config';
-import { coffeeBeanShowHandler } from 'handlers/coffeeBeanShowHandler';
+import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
 import { homeHandler } from 'handlers/homeHandler';
+import { shopHandler } from 'handlers/shopHandler';
 
 // tslint:disable-next-line:no-any no-var-requires no-require-imports
 const serviceAccount: any = require('serviceAccountKey.json');
@@ -41,7 +42,10 @@ app
   .use(cookieParser())
   .use(preHandler);
 
-app.get('/', homeHandler).get('/coffee-beans/:id', coffeeBeanShowHandler);
+app
+  .get('/', homeHandler)
+  .get('/coffee-beans/:id', coffeeBeanHandler)
+  .get('/shops/:id', shopHandler);
 
 // Server
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');

@@ -1,46 +1,8 @@
 @import 'application/vars';
+@import 'components/Header';
+@import 'components/Footer';
 
 .HomePage {
-  .HomePage--Header {
-    display: inline-block;
-    width: 100%;
-
-    .HomePage--Header--Content {
-      display: flex;
-      padding: 16px 8px;
-      width: 100%;
-      max-width: $width-content;
-      margin: 0 auto;
-
-      .HomePage--Header--Content--Heading {
-        /* TODO: update */
-        flex: 1;
-        display: inline-block;
-        font-size: 1.5rem;
-        font-weight: bold;
-        letter-spacing: -0.3px;
-      }
-
-      .HomePage--Header--Content--SignIn {
-        display: inline-block;
-
-        .HomePage--Header--Content--SignIn--Link {
-          display: inline-block;
-          padding: 12px 8px;
-        }
-      }
-
-      .HomePage--Header--Content--SignUp {
-        display: inline-block;
-
-        .HomePage--Header--Content--SignUp--Link {
-          display: inline-block;
-          padding: 12px 8px;
-        }
-      }
-    }
-  }
-
   .HomePage--Message {
     background: $color-background;
 
