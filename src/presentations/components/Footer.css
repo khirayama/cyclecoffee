@@ -1,0 +1,7 @@
+.Footer {
+  text-align: center;
+
+  a + a {
+    margin-left: 24px;
+  }
+}
