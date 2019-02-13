@@ -14,9 +14,6 @@ import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
 import { homeHandler } from 'handlers/homeHandler';
 import { shopHandler } from 'handlers/shopHandler';
 
-// tslint:disable-next-line:no-any no-var-requires no-require-imports
-const serviceAccount: any = require('serviceAccountKey.json');
-
 // tslint:disable-next-line:no-any
 const compiledFunction: (options: { props: any }) => void = pug.compileFile(
   path.resolve('dist', 'presentations', 'application', 'Layout.pug'),
