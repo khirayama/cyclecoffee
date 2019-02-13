@@ -39,10 +39,15 @@ app
   .use(cookieParser())
   .use(preHandler);
 
-app
+const web: express.Router = express.Router();
+const api: express.Router = express.Router();
+
+web
   .get('/', homeHandler)
   .get('/coffee-beans/:id', coffeeBeanHandler)
   .get('/shops/:id', shopHandler);
+
+app.use(web).use(api);
 
 // Server
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
