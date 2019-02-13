@@ -3,6 +3,7 @@ import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
+import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { HomePage, IProps as IHomePageProps } from 'presentations/components/HomePage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 
@@ -11,16 +12,16 @@ export const request: AxiosInstance = axios.create({
 });
 
 export function homeHandler(req: express.Request, res: express.Response): void {
-  const state: IHomePageProps = {
-    shops: [],
-    coffeeBeans: [],
-    plans: [],
-  };
   Promise.all([request.get('/api/shops'), request.get('/api/coffee-beans'), request.get('/api/plans')]).then(
     (result: AxiosResponse[]) => {
-      state.shops = result[0].data;
-      state.coffeeBeans = result[1].data;
-      state.plans = result[2].data;
+      const shops: IShop[] = result[0].data;
+      const coffeeBeans: ICoffeeBean[] = result[1].data;
+      const plans: IPlan[] = result[2].data;
+      const state: IHomePageProps = {
+        shops,
+        coffeeBeans,
+        plans,
+      };
 
       const props: ILayoutProps = generateLayoutProps();
       props.path = req.originalUrl;
