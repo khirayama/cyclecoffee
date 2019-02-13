@@ -5,67 +5,18 @@ import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
-export class HomePage extends React.Component<{}, {}> {
+export interface IProps {
+  plans: IPlan[];
+  coffeeBeans: ICoffeeBean[];
+  shops: IShop[];
+}
+
+export class HomePage extends React.Component<IProps, {}> {
   // tslint:disable:max-func-body-length
   public render(): JSX.Element {
-    const plans: IPlan[] = [
-      {
-        id: 'light',
-        name: 'ライト',
-        price: 1780,
-        numberOfShipping: 2,
-        numberOfPack: 1,
-        amountOfPack: 100,
-      },
-      {
-        id: 'standard',
-        name: 'スタンダード',
-        price: 2580,
-        numberOfShipping: 2,
-        numberOfPack: 2,
-        amountOfPack: 100,
-      },
-      {
-        id: 'heavy',
-        name: 'ヘビー',
-        price: 3380,
-        numberOfShipping: 2,
-        numberOfPack: 4,
-        amountOfPack: 100,
-      },
-    ];
-
-    const shops: IShop[] = [
-      {
-        id: 'saredo',
-        name: 'Saredo Coffee',
-        imageUrl: '/images/shop_sample.webp',
-      },
-    ];
-
-    const coffeeBeans: ICoffeeBean[] = [
-      {
-        id: 'gohobi',
-        name: 'ごほうびブレンド',
-        description: 'ごほうびブレンド説明',
-        shopId: 'saredo',
-        imageUrl: '/images/coffee_bean_sample.jpg',
-      },
-      {
-        id: 'horoniga',
-        name: 'ほろにがブレンド',
-        description: 'ほろにがブレンド説明',
-        shopId: 'saredo',
-        imageUrl: '/images/coffee_bean_sample.jpg',
-      },
-      {
-        id: 'Ethiopia',
-        name: 'エチオピア',
-        description: 'エチオピア説明',
-        shopId: 'saredo',
-        imageUrl: '/images/coffee_bean_sample.jpg',
-      },
-    ];
+    const plans: IPlan[] = this.props.plans;
+    const coffeeBeans: ICoffeeBean[] = this.props.coffeeBeans;
+    const shops: IShop[] = this.props.shops;
 
     return (
       <div className="HomePage">

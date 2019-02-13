@@ -5,5 +5,5 @@ import { HomePage } from 'presentations/components/HomePage';
 
 window.addEventListener('DOMContentLoaded', () => {
   const el: HTMLElement = window.document.querySelector('.application');
-  ReactDOM.render(React.createElement(HomePage), el);
+  ReactDOM.render(React.createElement(HomePage, window.state), el);
 });
