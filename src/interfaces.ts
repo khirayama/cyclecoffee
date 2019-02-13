@@ -1,3 +1,11 @@
+declare global {
+  // tslint:disable-next-line:interface-name
+  interface Window {
+    // tslint:disable-next-line:no-any
+    state: any;
+  }
+}
+
 export interface IPlan {
   id: string;
   name: string;
