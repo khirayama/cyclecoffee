@@ -5,22 +5,16 @@ import { ICoffeeBean, IShop } from 'interfaces';
 import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
-export class CoffeeBeanPage extends React.Component<{}, {}> {
+export interface IProps {
+  shop: IShop;
+  coffeeBean: ICoffeeBean;
+}
+
+export class CoffeeBeanPage extends React.Component<IProps, {}> {
   // tslint:disable:max-func-body-length
   public render(): JSX.Element {
-    const shop: IShop = {
-      id: 'saredo',
-      name: 'Saredo Coffee',
-      imageUrl: '/images/shop_sample.webp',
-    };
-
-    const coffeeBean: ICoffeeBean = {
-      id: 'gohobi',
-      name: 'ごほうびブレンド',
-      description: 'ごほうびブレンド説明',
-      shopId: 'saredo',
-      imageUrl: '/images/coffee_bean_sample.jpg',
-    };
+    const shop: IShop = this.props.shop;
+    const coffeeBean: ICoffeeBean = this.props.coffeeBean;
 
     return (
       <div className="CoffeeBeanPage">
