@@ -5,5 +5,3 @@
 /dist
 /secret.yaml
 /.envrc
-
-/src/serviceAccountKey.json
