@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
+import { CoffeeBeanCard } from 'presentations/components/CoffeeBeanCard';
 import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
@@ -94,21 +95,15 @@ export class HomePage extends React.Component<IProps, {}> {
                 const shop: IShop = shops.filter((targetShop: IShop) => targetShop.id === coffeeBean.shopId)[0];
 
                 return (
-                  <li key={coffeeBean.id} className="HomePage--CoffeeBeans--Content--List--Item">
-                    <div className="HomePage--CoffeeBeans--Content--List--Item--CoffeeBean">
-                      <a href={`/coffee-beans/${coffeeBean.id}`}>
-                        <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
-                        <h2>{coffeeBean.name}</h2>
-                        <p>{coffeeBean.description}</p>
-                      </a>
-                    </div>
+                  <div key={coffeeBean.id} className="HomePage--CoffeeBeans--Content--List--Item">
+                    <CoffeeBeanCard coffeeBean={coffeeBean} />
                     <div className="HomePage--CoffeeBeans--Content--List--Item--Roaster">
                       <a href={`/shops/${shop.id}`}>
                         <img src={shop.imageUrl} alt={shop.name} />
                         {shop.name}
                       </a>
                     </div>
-                  </li>
+                  </div>
                 );
               })}
             </ul>

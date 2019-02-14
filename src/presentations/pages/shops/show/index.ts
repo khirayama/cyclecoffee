@@ -5,5 +5,5 @@ import { ShopPage } from 'presentations/components/ShopPage';
 
 window.addEventListener('DOMContentLoaded', () => {
   const el: HTMLElement = window.document.querySelector('.application');
-  ReactDOM.render(React.createElement(ShopPage), el);
+  ReactDOM.render(React.createElement(ShopPage, window.state), el);
 });
