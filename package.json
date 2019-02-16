@@ -42,8 +42,6 @@
     "deep-equal": "1.0.1",
     "express": "4.16.4",
     "express-useragent": "1.0.12",
-    "firebase": "5.8.2",
-    "firebase-admin": "7.0.0",
     "morgan": "1.9.1",
     "preact-render-to-string": "4.1.0",
     "pug": "2.0.3",
@@ -52,7 +50,6 @@
   },
   "devDependencies": {
     "@hint/formatter-codeframe": "2.0.1",
-    "@types/firebase": "3.2.1",
     "@types/mocha": "5.2.5",
     "@types/node": "10.12.24",
     "@types/query-string": "6.2.0",
