@@ -1,6 +1,7 @@
 @import 'application/vars';
 @import 'components/Header';
 @import 'components/Footer';
+@import 'components/CoffeeBeanCard';
 
 .HomePage {
   .HomePage--Message {
