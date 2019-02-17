@@ -12,6 +12,7 @@
         "singleQuote": true,
         "trailingComma": "all"
       }],
+      "typedef": false,
       "missing-jsdoc": false,
       "no-backbone-get-set-outside-model": false,
       "no-implicit-dependencies": false,
