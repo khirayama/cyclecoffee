@@ -1,18 +1,5 @@
 import { tracker, Tracker } from 'presentations/utils/tracker';
 
-declare global {
-  // tslint:disable-next-line:interface-name
-  interface Window {
-    options: {
-      env: string;
-      lang: string;
-      gaCode: string;
-      route: string;
-    };
-    tracker: Tracker;
-  }
-}
-
 // Tracker
 const route: string = window.options.route;
 const loc: string = window.location.href;

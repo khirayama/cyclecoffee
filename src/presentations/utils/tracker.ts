@@ -1,16 +1,3 @@
-declare global {
-  // tslint:disable-next-line:interface-name
-  interface Window {
-    options: {
-      env: string;
-      lang: string;
-      gaCode: string;
-      route: string;
-    };
-    ga(...args: (string | IPageViewOptions | IEventOptions | IExceptionOptions)[]): void;
-  }
-}
-
 interface IOptions {
   code?: string;
   debug?: boolean;
