@@ -24,10 +24,10 @@ const coffeeBeans: ICoffeeBean[] = [
       profile: [
         {
           time: 0,
-          temperature: 150,
+          temperature: 190,
         },
         {
-          time: 3,
+          time: 1,
           temperature: 110,
         },
         {
@@ -70,7 +70,7 @@ const coffeeBeans: ICoffeeBean[] = [
       profile: [
         {
           time: 0,
-          temperature: 150,
+          temperature: 190,
         },
         {
           time: 3,
@@ -116,7 +116,7 @@ const coffeeBeans: ICoffeeBean[] = [
       profile: [
         {
           time: 0,
-          temperature: 150,
+          temperature: 190,
         },
         {
           time: 3,

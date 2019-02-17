@@ -1,4 +1,5 @@
 // tslint:disable:react-a11y-anchors react-no-dangerous-html
+import * as d3 from 'd3';
 import * as React from 'react';
 
 import { ICoffeeBean, IShop } from 'interfaces';
@@ -11,6 +12,78 @@ export interface IProps {
 }
 
 export class CoffeeBeanPage extends React.Component<IProps, {}> {
+  private profileRef: React.RefObject<HTMLDivElement> = React.createRef();
+
+  // tslint:disable-next-line:max-func-body-length
+  public componentDidMount(): void {
+    const el: HTMLDivElement = this.profileRef.current;
+    const profile: any[] = this.props.coffeeBean.roastProfile.profile;
+    const width = el.clientWidth;
+    const height = (el.clientWidth * 1) / 2;
+    const margin = {
+      top: 30,
+      bottom: 60,
+      right: 30,
+      left: 60,
+    };
+    const svg = d3
+      .select(el)
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height);
+    // For scale
+    const xScale = d3
+      .scaleLinear()
+      .domain([0, 20])
+      .range([margin.left, width - margin.right]);
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, 300])
+      .range([height - margin.bottom, margin.top]);
+    // For axis
+    const axisx = d3.axisBottom(xScale).ticks(20);
+    const axisy = d3.axisLeft(yScale).ticks(5);
+    svg
+      .append('g')
+      .attr('transform', `translate(0, ${height - margin.bottom})`)
+      .call(axisx)
+      .append('text')
+      .attr('fill', 'black')
+      .attr('x', (width - margin.left - margin.right) / 2 + margin.left)
+      .attr('y', 35)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', '10pt')
+      .attr('font-weight', 'bold')
+      .text('時間(分)');
+    svg
+      .append('g')
+      .attr('transform', `translate(${margin.left},0)`)
+      .call(axisy)
+      .append('text')
+      .attr('fill', 'black')
+      .attr('text-anchor', 'middle')
+      .attr('x', -(height - margin.top - margin.bottom) / 2 - margin.top)
+      .attr('y', -35)
+      .attr('transform', 'rotate(-90)')
+      .attr('font-weight', 'bold')
+      .attr('font-size', '10pt')
+      .text('温度');
+    // For line
+    svg
+      .append('path')
+      .datum(profile)
+      .attr('fill', 'none')
+      .attr('stroke', 'steelblue')
+      .attr('stroke-width', 1.5)
+      .attr(
+        'd',
+        d3
+          .line()
+          .x(d => xScale(d.time))
+          .y(d => yScale(d.temperature)),
+      );
+  }
+
   // tslint:disable:max-func-body-length
   public render(): JSX.Element {
     const shop: IShop = this.props.shop;
@@ -61,7 +134,7 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
             </tbody>
           </table>
           <h3>焙煎プロファイル</h3>
-          <img src="/images/roast_profile.png" alt={`${shop.name}の${coffeeBean.name}の焙煎プロファイル`} />
+          <div ref={this.profileRef} />
           <p>
             <span>{coffeeBean.roastProfile.roast}</span>
             <span>{coffeeBean.roastProfile.machine}</span>
