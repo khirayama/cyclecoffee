@@ -95,7 +95,7 @@ export class HomePage extends React.Component<IProps, {}> {
                 const shop: IShop = shops.filter((targetShop: IShop) => targetShop.id === coffeeBean.shopId)[0];
 
                 return (
-                  <div key={coffeeBean.id} className="HomePage--CoffeeBeans--Content--List--Item">
+                  <li key={coffeeBean.id} className="HomePage--CoffeeBeans--Content--List--Item">
                     <CoffeeBeanCard coffeeBean={coffeeBean} />
                     <div className="HomePage--CoffeeBeans--Content--List--Item--Roaster">
                       <a href={`/shops/${shop.id}`}>
@@ -103,7 +103,7 @@ export class HomePage extends React.Component<IProps, {}> {
                         {shop.name}
                       </a>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
             </ul>
