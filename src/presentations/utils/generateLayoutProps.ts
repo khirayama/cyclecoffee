@@ -9,6 +9,7 @@ export interface ILayoutProps {
   baseUrl: string;
   url: string;
   path: string;
+  route: string;
   name: string;
   keywords: string;
   image: string;
@@ -35,6 +36,7 @@ export function generateLayoutProps(): ILayoutProps {
     twitterAccount: config.twitterAccount,
     pageType: 'cafe',
     path: '',
+    route: '',
     // content meta
     title: '',
     description: '',
