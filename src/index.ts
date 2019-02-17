@@ -36,12 +36,12 @@ function authMockHandler(req: express.Request, res: express.Response, next: expr
 
 function signInMockHandler(req: express.Request, res: express.Response): void {
   res.cookie('session', true);
-  res.redirect('/');
+  res.redirect(req.headers.referer);
 }
 
 function signOutMockHandler(req: express.Request, res: express.Response): void {
   res.clearCookie('session');
-  res.redirect('/');
+  res.redirect(req.headers.referer);
 }
 
 const web: express.Router = express.Router();
