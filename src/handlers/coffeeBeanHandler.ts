@@ -8,7 +8,8 @@ import { CoffeeBeanPage, IProps as ICoffeeBeanPageProps } from 'presentations/co
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 
 export const request: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3030/',
+  // tslint:disable-next-line:no-http-string
+  baseURL: `http://127.0.0.1:${process.env.PORT || '3030'}`,
 });
 
 export function coffeeBeanHandler(req: express.Request, res: express.Response): void {

@@ -8,7 +8,8 @@ import { IProps as IShopPageProps, ShopPage } from 'presentations/components/Sho
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 
 export const request: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3030/',
+  // tslint:disable-next-line:no-http-string
+  baseURL: `http://127.0.0.1:${process.env.PORT || '3030'}`,
 });
 
 export function shopHandler(req: express.Request, res: express.Response): void {

@@ -10,6 +10,8 @@
     "./node_modules/@types/**/*.d.ts"
   ],
   "exclude": [
-    "src/presentations/**/*.ts"
+    "./node_modules/**/*.d.ts",
+    "src/presentations/**/*.ts",
+    "src/presentations/**/*.tsx"
   ]
 }
