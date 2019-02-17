@@ -9,6 +9,45 @@ const coffeeBeans: ICoffeeBean[] = [
     description: 'ごほうびブレンド説明',
     shopId: 'saredo',
     imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 150,
+        },
+        {
+          time: 3,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
   },
   {
     id: 'horoniga',
@@ -16,13 +55,91 @@ const coffeeBeans: ICoffeeBean[] = [
     description: 'ほろにがブレンド説明',
     shopId: 'saredo',
     imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 150,
+        },
+        {
+          time: 3,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
   },
   {
-    id: 'Ethiopia',
+    id: 'ethiopia',
     name: 'エチオピア',
     description: 'エチオピア説明',
     shopId: 'saredo',
     imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 150,
+        },
+        {
+          time: 3,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
   },
 ];
 

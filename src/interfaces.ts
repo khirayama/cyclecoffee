@@ -21,10 +21,31 @@ export interface IShop {
   imageUrl: string;
 }
 
+interface IGreenCoffeeBean {
+  name: string;
+  country: string;
+  farm: string;
+  height: number;
+  breed: string;
+  process: string;
+}
+
+interface IRoastProfile {
+  time: number;
+  temperature: number;
+}
+
 export interface ICoffeeBean {
   id: string;
   name: string;
   description: string;
   shopId: string;
   imageUrl: string;
+  greenCoffeeBean: IGreenCoffeeBean;
+  roastProfile: {
+    machine: string;
+    season: string;
+    roast: string;
+    profile: IRoastProfile[];
+  };
 }

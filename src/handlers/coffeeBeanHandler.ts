@@ -10,7 +10,7 @@ import { Shop } from 'services/Shop';
 
 export function coffeeBeanHandler(req: express.Request, res: express.Response): void {
   CoffeeBean.find(req.params.id).then((coffeeBean: ICoffeeBean) => {
-    Shop.find(coffeeBean.id).then((shop: IShop) => {
+    Shop.find(coffeeBean.shopId).then((shop: IShop) => {
       const state: ICoffeeBeanPageProps = {
         shop,
         coffeeBean,

@@ -36,35 +36,37 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
             <tbody>
               <tr>
                 <td>名前</td>
-                <td>ブラジル</td>
+                <td>{coffeeBean.greenCoffeeBean.name}</td>
               </tr>
               <tr>
                 <td>地域</td>
-                <td>ブラジル</td>
+                <td>{coffeeBean.greenCoffeeBean.country}</td>
               </tr>
               <tr>
                 <td>産地標高</td>
-                <td>1805m</td>
+                <td>{coffeeBean.greenCoffeeBean.height}m</td>
               </tr>
               <tr>
                 <td>精製所</td>
-                <td>ホゲホゲ農園</td>
+                <td>{coffeeBean.greenCoffeeBean.farm}</td>
               </tr>
               <tr>
                 <td>品種</td>
-                <td>ブルボン</td>
+                <td>{coffeeBean.greenCoffeeBean.breed}</td>
               </tr>
               <tr>
                 <td>精製法</td>
-                <td>フーリーウォッシュド</td>
+                <td>{coffeeBean.greenCoffeeBean.process}</td>
               </tr>
             </tbody>
           </table>
           <h3>焙煎プロファイル</h3>
           <img src="/images/roast_profile.png" alt={`${shop.name}の${coffeeBean.name}の焙煎プロファイル`} />
-          <p>スマートロースター 熱風式70kg釜 プロパンガス</p>
-          <p>2019年2月12日</p>
-          <p>中煎り</p>
+          <p>
+            <span>{coffeeBean.roastProfile.roast}</span>
+            <span>{coffeeBean.roastProfile.machine}</span>
+            <span>{coffeeBean.roastProfile.season}</span>
+          </p>
         </div>
         <Footer />
       </div>
