@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -6,18 +5,12 @@ import { renderToString } from 'react-dom/server';
 import { ICoffeeBean, IShop } from 'interfaces';
 import { CoffeeBeanPage, IProps as ICoffeeBeanPageProps } from 'presentations/components/CoffeeBeanPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
-
-export const request: AxiosInstance = axios.create({
-  // tslint:disable-next-line:no-http-string
-  baseURL: `http://127.0.0.1:${process.env.PORT || '3030'}`,
-});
+import { CoffeeBean } from 'services/CoffeeBean';
+import { Shop } from 'services/Shop';
 
 export function coffeeBeanHandler(req: express.Request, res: express.Response): void {
-  Promise.all([request.get('/api/shops/saredo'), request.get('/api/coffee-beans/gohobi')]).then(
-    (result: AxiosResponse[]) => {
-      const shop: IShop = result[0].data;
-      const coffeeBean: ICoffeeBean = result[1].data;
-
+  CoffeeBean.find(req.params.id).then((coffeeBean: ICoffeeBean) => {
+    Shop.find(coffeeBean.id).then((shop: IShop) => {
       const state: ICoffeeBeanPageProps = {
         shop,
         coffeeBean,
@@ -37,6 +30,6 @@ export function coffeeBeanHandler(req: express.Request, res: express.Response): 
       props.state = state;
 
       res.send(req.compiledFunction({ props }));
-    },
-  );
+    });
+  });
 }

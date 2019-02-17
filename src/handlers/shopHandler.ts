@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -6,16 +5,13 @@ import { renderToString } from 'react-dom/server';
 import { ICoffeeBean, IShop } from 'interfaces';
 import { IProps as IShopPageProps, ShopPage } from 'presentations/components/ShopPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
-
-export const request: AxiosInstance = axios.create({
-  // tslint:disable-next-line:no-http-string
-  baseURL: `http://127.0.0.1:${process.env.PORT || '3030'}`,
-});
+import { CoffeeBean } from 'services/CoffeeBean';
+import { Shop } from 'services/Shop';
 
 export function shopHandler(req: express.Request, res: express.Response): void {
-  Promise.all([request.get('/api/shops/saredo'), request.get('/api/coffee-beans')]).then((result: AxiosResponse[]) => {
-    const shop: IShop = result[0].data;
-    const coffeeBeans: ICoffeeBean[] = result[1].data;
+  Promise.all([Shop.find(req.params.id), CoffeeBean.fetch()]).then((result: [IShop, ICoffeeBean[]]) => {
+    const shop: IShop = result[0];
+    const coffeeBeans: ICoffeeBean[] = result[1];
 
     const state: IShopPageProps = {
       shop,
