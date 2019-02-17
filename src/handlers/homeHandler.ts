@@ -15,6 +15,7 @@ export function homeHandler(req: express.Request, res: express.Response): void {
     const coffeeBeans: ICoffeeBean[] = result[1];
     const plans: IPlan[] = result[2];
     const state: IHomePageProps = {
+      isSignedIn: req.isSignedIn,
       shops,
       coffeeBeans,
       plans,

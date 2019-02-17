@@ -7,6 +7,7 @@ import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
 export interface IProps {
+  isSignedIn: boolean;
   plans: IPlan[];
   coffeeBeans: ICoffeeBean[];
   shops: IShop[];
@@ -21,7 +22,7 @@ export class HomePage extends React.Component<IProps, {}> {
 
     return (
       <div className="HomePage">
-        <Header />
+        <Header isSignedIn={this.props.isSignedIn} />
         <div className="HomePage--Message">
           <div className="HomePage--Message--Content">
             <h2>

@@ -1,4 +1,4 @@
-// tslint:disable:react-a11y-anchors react-no-dangerous-html
+// tslint:disable:react-a11y-anchors react-no-dangerous-html no-any
 import * as d3 from 'd3';
 import * as React from 'react';
 
@@ -7,6 +7,7 @@ import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
 export interface IProps {
+  isSignedIn: boolean;
   shop: IShop;
   coffeeBean: ICoffeeBean;
 }
@@ -79,8 +80,8 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
         'd',
         d3
           .line()
-          .x(d => xScale(d.time))
-          .y(d => yScale(d.temperature)),
+          .x((d: any) => xScale(d.time))
+          .y((d: any) => yScale(d.temperature)),
       );
   }
 
@@ -91,7 +92,7 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
 
     return (
       <div className="CoffeeBeanPage">
-        <Header />
+        <Header isSignedIn={this.props.isSignedIn} />
         <div className="CoffeeBeanPage--CoffeeBean">
           <h1>{coffeeBean.name}</h1>
           <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />

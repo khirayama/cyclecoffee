@@ -7,6 +7,7 @@ import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
 export interface IProps {
+  isSignedIn: boolean;
   shop: IShop;
   coffeeBeans: ICoffeeBean[];
 }
@@ -19,7 +20,7 @@ export class ShopPage extends React.Component<IProps, {}> {
 
     return (
       <div className="ShopPage">
-        <Header />
+        <Header isSignedIn={this.props.isSignedIn} />
         <div className="ShopPage--CoffeeBean">
           <h1>{shop.name}</h1>
           <img src={shop.imageUrl} alt={shop.name} />

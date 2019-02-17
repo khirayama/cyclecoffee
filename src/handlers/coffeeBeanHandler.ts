@@ -12,6 +12,7 @@ export function coffeeBeanHandler(req: express.Request, res: express.Response): 
   CoffeeBean.find(req.params.id).then((coffeeBean: ICoffeeBean) => {
     Shop.find(coffeeBean.shopId).then((shop: IShop) => {
       const state: ICoffeeBeanPageProps = {
+        isSignedIn: req.isSignedIn,
         shop,
         coffeeBean,
       };

@@ -14,6 +14,7 @@ export function shopHandler(req: express.Request, res: express.Response): void {
     const coffeeBeans: ICoffeeBean[] = result[1];
 
     const state: IShopPageProps = {
+      isSignedIn: req.isSignedIn,
       shop,
       coffeeBeans,
     };
