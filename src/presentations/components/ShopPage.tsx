@@ -23,6 +23,7 @@ export class ShopPage extends React.Component<IProps, {}> {
         <div className="ShopPage--CoffeeBean">
           <h1>{shop.name}</h1>
           <img src={shop.imageUrl} alt={shop.name} />
+          <p>TODO: 写真替え、説明、地図、そのほか情報</p>
           <ul className="ShopPage--CoffeeBean--List">
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
               return (
