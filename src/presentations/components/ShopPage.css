@@ -1,6 +1,7 @@
 @import 'application/vars';
 @import 'components/Header';
 @import 'components/Footer';
+@import 'components/CoffeeBeanCard';
 
 .ShopPage {
   .ShopPage--CoffeeBean {
@@ -9,32 +10,15 @@
     max-width: $width-content;
     margin: 0 auto;
 
-    .ShopPage--CoffeeBean--ShopName {
-      img {
-        width: auto;
-        height: 60px;
-      }
-      span {
-        line-height: 60px;
-        margin-left: 12px;
-      }
-    }
+    .ShopPage--CoffeeBean--List {
+      display: flex;
 
-    .ShopPage--CoffeeBean--SelectButton {
-      text-align: right;
-
-      button {
-        border-radius: $radius;
-        background: $color-text-attention;
-        color: $color-white;
+      .ShopPage--CoffeeBean--List--Item {
+        display: inline-block;
+        flex: 1;
         padding: 12px;
-        cursor: pointer;
       }
     }
-  }
-
-  h3 {
-    margin: 24px 0;
   }
 
   img {

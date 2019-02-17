@@ -23,15 +23,13 @@ export class ShopPage extends React.Component<IProps, {}> {
         <div className="ShopPage--CoffeeBean">
           <h1>{shop.name}</h1>
           <img src={shop.imageUrl} alt={shop.name} />
-          <h2 className="ShopPage--CoffeeBean--ShopName">
-            <a href={`/shops/${shop.id}`}>
-              <img src={shop.imageUrl} alt={shop.name} />
-              <span>{shop.name}</span>
-            </a>
-          </h2>
-          <ul>
+          <ul className="ShopPage--CoffeeBean--List">
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
-              return <CoffeeBeanCard key={coffeeBean.id} coffeeBean={coffeeBean} />;
+              return (
+                <li key={coffeeBean.id} className="ShopPage--CoffeeBean--List--Item">
+                  <CoffeeBeanCard coffeeBean={coffeeBean} />
+                </li>
+              );
             })}
           </ul>
         </div>
