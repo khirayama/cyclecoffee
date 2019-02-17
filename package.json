@@ -41,6 +41,7 @@
     "classnames": "2.2.6",
     "compression": "1.7.3",
     "cookie-parser": "1.4.4",
+    "d3": "5.9.1",
     "express": "4.16.4",
     "express-useragent": "1.0.12",
     "morgan": "1.9.1",
@@ -50,6 +51,7 @@
   },
   "devDependencies": {
     "@hint/formatter-codeframe": "2.0.1",
+    "@types/d3": "5.7.1",
     "@types/mocha": "5.2.6",
     "@types/node": "11.9.4",
     "@types/pug": "2.0.4",
