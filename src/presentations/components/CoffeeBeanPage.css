@@ -29,6 +29,10 @@
         color: $color-white;
         padding: 12px;
         cursor: pointer;
+
+        &[disabled] {
+          background: $color-divider;
+        }
       }
     }
   }

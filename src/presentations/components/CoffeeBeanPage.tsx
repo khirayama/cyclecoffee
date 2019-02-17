@@ -103,7 +103,7 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
             </a>
           </h2>
           <div className="CoffeeBeanPage--CoffeeBean--SelectButton">
-            <button>注文豆に選択</button>
+            <button disabled={!this.props.isSignedIn}>注文豆に選択</button>
           </div>
           <h3>生豆情報</h3>
           <table>
