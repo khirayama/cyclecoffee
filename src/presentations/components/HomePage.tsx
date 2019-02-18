@@ -13,7 +13,8 @@ export interface IProps {
   shops: IShop[];
 }
 
-export class HomePage extends React.Component<IProps, {}> {
+// tslint:disable-next-line: completed-docs
+export class HomePage extends React.Component<IProps> {
   // tslint:disable:max-func-body-length
   public render(): JSX.Element {
     const plans: IPlan[] = this.props.plans;

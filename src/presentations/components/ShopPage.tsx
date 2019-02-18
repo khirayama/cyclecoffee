@@ -12,8 +12,8 @@ export interface IProps {
   coffeeBeans: ICoffeeBean[];
 }
 
-export class ShopPage extends React.Component<IProps, {}> {
-  // tslint:disable:max-func-body-length
+// tslint:disable-next-line: completed-docs
+export class ShopPage extends React.Component<IProps> {
   public render(): JSX.Element {
     const shop: IShop = this.props.shop;
     const coffeeBeans: ICoffeeBean[] = this.props.coffeeBeans;

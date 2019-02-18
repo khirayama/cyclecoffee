@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ICoffeeBean } from 'interfaces';
 
-// tslint:disable-next-line:function-name
+// tslint:disable-next-line: function-name
 export function CoffeeBeanCard(props: { coffeeBean: ICoffeeBean }): JSX.Element {
   const coffeeBean: ICoffeeBean = props.coffeeBean;
 
