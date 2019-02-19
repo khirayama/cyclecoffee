@@ -39,8 +39,6 @@ module.exports = (env, argv) => {
         'process.env': JSON.stringify({
           NODE_ENV: process.env.NODE_ENV,
           GOOGLE_ANALYTICS_CODE: process.env.GOOGLE_ANALYTICS_CODE,
-          FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-          FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
         }),
       }),
     ],
