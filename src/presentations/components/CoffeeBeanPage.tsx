@@ -12,6 +12,7 @@ export interface IProps {
   coffeeBean: ICoffeeBean;
 }
 
+// tslint:disable-next-line: completed-docs
 export class CoffeeBeanPage extends React.Component<IProps, {}> {
   private profileRef: React.RefObject<HTMLDivElement> = React.createRef();
 
