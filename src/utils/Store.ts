@@ -3,6 +3,7 @@ const ACTION_DISPATCH: string = '__ACTION_DISPATCH';
 
 type TListener<Action> = (action: Action) => void;
 
+// tslint:disable-next-line: completed-docs
 export class Store<T, P> {
   private listeners: {
     [key: string]: {

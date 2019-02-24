@@ -25,6 +25,7 @@ function isBrowser(): boolean {
   return typeof window === 'object';
 }
 
+// tslint:disable-next-line: completed-docs
 export class Tracker {
   private options: IOptions;
 
