@@ -155,25 +155,9 @@ const plans: IPlan[] = [
   {
     id: 'light',
     name: 'ライト',
-    price: 1780,
+    price: 1840,
     numberOfShipping: 2,
     numberOfPack: 1,
-    amountOfPack: 100,
-  },
-  {
-    id: 'standard',
-    name: 'スタンダード',
-    price: 2580,
-    numberOfShipping: 2,
-    numberOfPack: 2,
-    amountOfPack: 100,
-  },
-  {
-    id: 'heavy',
-    name: 'ヘビー',
-    price: 3380,
-    numberOfShipping: 2,
-    numberOfPack: 4,
     amountOfPack: 100,
   },
 ];
