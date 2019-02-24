@@ -146,9 +146,11 @@ export class HomePage extends React.Component<IProps> {
             </ul>
           </div>
         </div>
-        <div>
-          <p>なんとかかんとか、コーヒー便</p>
-          <a href="/app">Start on WEB</a>
+        <div className="HomePage--Message">
+          <div className="HomePage--Message--Content">
+            <h2>なんとかかんとか、コーヒー便</h2>
+            <a href="/app">Start on WEB</a>
+          </div>
         </div>
         <Footer />
       </div>
