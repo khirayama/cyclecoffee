@@ -97,12 +97,6 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
         <div className="CoffeeBeanPage--CoffeeBean">
           <h1>{coffeeBean.name}</h1>
           <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
-          <h2 className="CoffeeBeanPage--CoffeeBean--ShopName">
-            <a href={`/shops/${shop.id}`}>
-              <img src={shop.imageUrl} alt={shop.name} />
-              <span>{shop.name}</span>
-            </a>
-          </h2>
           <div className="CoffeeBeanPage--CoffeeBean--SelectButton">
             <button disabled={!this.props.isSignedIn}>注文豆に選択</button>
           </div>
@@ -142,6 +136,12 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
             <span>{coffeeBean.roastProfile.machine}</span>
             <span>{coffeeBean.roastProfile.season}</span>
           </p>
+          <h2 className="CoffeeBeanPage--CoffeeBean--ShopName">
+            <a href={`/shops/${shop.id}`}>
+              <img src={shop.imageUrl} alt={shop.name} />
+              <span>{shop.name}</span>
+            </a>
+          </h2>
         </div>
         <Footer />
       </div>
