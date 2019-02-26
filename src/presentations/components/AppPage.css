@@ -3,4 +3,6 @@
 @import 'components/Footer';
 
 .AppPage {
+  .AppPage--Content {
+  }
 }

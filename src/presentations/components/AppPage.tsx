@@ -23,7 +23,25 @@ export class AppPage extends React.Component<IProps> {
     return (
       <div className="AppPage">
         <Header isSignedIn={this.props.isSignedIn} />
-        <div>App Page</div>
+        <div className="AppPage--Content">
+          <div>最初のコーヒー豆を選ぼう</div>
+          <ul>
+            {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
+              return (
+                <li>
+                  <a href={`/coffee-beans/${coffeeBean.id}`}>
+                    <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+                    <span>{coffeeBean.name}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <div>次回のコーヒー豆</div>
+          <div>ロースター紹介</div>
+          <div>スキップ</div>
+          <div />
+        </div>
         <Footer />
       </div>
     );
