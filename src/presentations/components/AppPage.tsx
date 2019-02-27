@@ -26,10 +26,10 @@ export class AppPage extends React.Component<IProps> {
         <Header isSignedIn={this.props.isSignedIn} />
         <div className="AppPage--Content">
           <div>最初のコーヒー豆を選ぼう</div>
-          <ul>
+          <ul className="AppPage--Content--CoffeeBeanList">
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
               return (
-                <li key={coffeeBean.id}>
+                <li key={coffeeBean.id} className="AppPage--Content--CoffeeBeanList--Item">
                   <CoffeeBeanCard coffeeBean={coffeeBean} />
                 </li>
               );
