@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
+import { CoffeeBeanCard } from 'presentations/components/CoffeeBeanCard';
 import { Footer } from 'presentations/components/Footer';
 import { Header } from 'presentations/components/Header';
 
@@ -28,11 +29,8 @@ export class AppPage extends React.Component<IProps> {
           <ul>
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
               return (
-                <li>
-                  <a href={`/coffee-beans/${coffeeBean.id}`}>
-                    <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
-                    <span>{coffeeBean.name}</span>
-                  </a>
+                <li key={coffeeBean.id}>
+                  <CoffeeBeanCard coffeeBean={coffeeBean} />
                 </li>
               );
             })}

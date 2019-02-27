@@ -1,8 +1,12 @@
 @import 'application/vars';
 @import 'components/Header';
 @import 'components/Footer';
+@import 'components/CoffeeBeanCard';
 
 .AppPage {
   .AppPage--Content {
+    width: 100%;
+    max-width: $width-content;
+    margin: 0 auto;
   }
 }
