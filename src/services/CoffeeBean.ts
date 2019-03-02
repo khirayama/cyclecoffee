@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
 import { ICoffeeBean } from 'interfaces';
 import { req } from 'services/utils';

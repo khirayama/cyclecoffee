@@ -17,8 +17,8 @@ export interface IProps {
 export class AppPage extends React.Component<IProps> {
   // tslint:disable:max-func-body-length
   public render(): JSX.Element {
-    const plans: IPlan[] = this.props.plans;
     const coffeeBeans: ICoffeeBean[] = this.props.coffeeBeans;
+    const plans: IPlan[] = this.props.plans;
     const shops: IShop[] = this.props.shops;
 
     return (

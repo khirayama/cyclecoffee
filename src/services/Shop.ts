@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
 import { IShop } from 'interfaces';
 import { req } from 'services/utils';

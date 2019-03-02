@@ -1,4 +1,4 @@
-import { tracker, Tracker } from 'presentations/utils/tracker';
+import { tracker } from 'presentations/utils/tracker';
 
 // Tracker
 const route: string = window.options.route;

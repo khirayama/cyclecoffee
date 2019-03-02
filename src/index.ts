@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import * as path from 'path';
 
 import * as bodyParser from 'body-parser';
@@ -9,7 +8,6 @@ import * as useragent from 'express-useragent';
 import * as logger from 'morgan';
 import * as pug from 'pug';
 
-import { config } from 'config';
 import {
   coffeeBeanAPIHandler,
   coffeeBeansAPIHandler,
@@ -21,7 +19,6 @@ import { appHandler } from 'handlers/appHandler';
 import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
 import { homeHandler } from 'handlers/homeHandler';
 import { shopHandler } from 'handlers/shopHandler';
-import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
   req.compiledFunction = pug.compileFile(path.resolve('dist', 'presentations', 'application', 'Layout.pug'), {
