@@ -1,4 +1,3 @@
-// tslint:disable:react-a11y-anchors react-no-dangerous-html
 import * as React from 'react';
 
 import { ICoffeeBean, IShop } from 'interfaces';
@@ -12,7 +11,6 @@ export interface IProps {
   coffeeBeans: ICoffeeBean[];
 }
 
-// tslint:disable-next-line: completed-docs
 export class ShopPage extends React.Component<IProps> {
   public render(): JSX.Element {
     const shop: IShop = this.props.shop;

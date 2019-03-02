@@ -1,4 +1,3 @@
-// tslint:disable:react-a11y-anchors react-no-dangerous-html no-any
 import * as d3 from 'd3';
 import * as React from 'react';
 
@@ -12,11 +11,9 @@ export interface IProps {
   coffeeBean: ICoffeeBean;
 }
 
-// tslint:disable-next-line: completed-docs
 export class CoffeeBeanPage extends React.Component<IProps, {}> {
   private profileRef: React.RefObject<HTMLDivElement> = React.createRef();
 
-  // tslint:disable-next-line:max-func-body-length
   public componentDidMount(): void {
     const el: HTMLDivElement = this.profileRef.current;
     const profile: any[] = this.props.coffeeBean.roastProfile.profile;
@@ -86,7 +83,6 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
       );
   }
 
-  // tslint:disable:max-func-body-length
   public render(): JSX.Element {
     const shop: IShop = this.props.shop;
     const coffeeBean: ICoffeeBean = this.props.coffeeBean;

@@ -25,7 +25,6 @@ function isBrowser(): boolean {
   return typeof window === 'object';
 }
 
-// tslint:disable-next-line: completed-docs
 export class Tracker {
   private options: IOptions;
 
@@ -99,7 +98,7 @@ export class Tracker {
         texts.push(arg);
       }
     }
-    // tslint:disable-next-line:no-console
+    /* eslint-disable-next-line no-console */
     console.log(`%c${texts.join(' ')}`, 'color: #9e9e9e;');
   }
 }

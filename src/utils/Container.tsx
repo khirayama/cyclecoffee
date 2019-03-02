@@ -1,4 +1,3 @@
-// tslint:disable:no-any
 import * as React from 'react';
 
 import { Store } from 'utils/Store';
@@ -18,7 +17,6 @@ export interface IContainerProps {
 
 const context: React.Context<IContext | null> = React.createContext(null);
 
-// tslint:disable-next-line: completed-docs
 export class Provider extends React.Component<IProps, {}> {
   public render(): JSX.Element {
     const ctx: IContext = {
@@ -30,7 +28,6 @@ export class Provider extends React.Component<IProps, {}> {
 }
 
 export function connect(component: React.ComponentClass<IContainerProps, {}>): React.ComponentClass<{}, {}> {
-  // tslint:disable-next-line: completed-docs
   class Container extends React.Component<{}, {}> {
     public static contextType: React.Context<IContext> = context;
 

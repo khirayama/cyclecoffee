@@ -3,7 +3,6 @@ import { AxiosResponse } from 'axios';
 import { IShop } from 'interfaces';
 import { req } from 'services/utils';
 
-// tslint:disable-next-line:variable-name typedef
 export const Shop = {
   fetch: (): Promise<IShop[]> => {
     return new Promise(

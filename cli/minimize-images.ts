@@ -1,4 +1,4 @@
-// tslint:disable:no-console no-any
+/* eslint-disable no-console */
 import * as fs from 'fs';
 
 import * as imagemin from 'imagemin';

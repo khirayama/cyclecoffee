@@ -11,10 +11,10 @@ test
 docs
 package-lock.json
 tsconfig.*
-tslint.json
 webpack.config.js
 .envrc
 .hintrc
 .nvmrc
 .postcssrc.js
 .prettierrc
+.eslintrc.js

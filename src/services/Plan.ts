@@ -3,7 +3,6 @@ import { AxiosResponse } from 'axios';
 import { IPlan } from 'interfaces';
 import { req } from 'services/utils';
 
-// tslint:disable-next-line:variable-name typedef
 export const Plan = {
   fetch: (): Promise<IPlan[]> => {
     return new Promise(

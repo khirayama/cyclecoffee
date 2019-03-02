@@ -6,7 +6,7 @@ export interface IState {
 
 export interface IAction {
   actionType: Symbol;
-  payload?: any; // tslint:disable-line:no-any
-  meta?: any; // tslint:disable-line:no-any
-  error?: any; // tslint:disable-line:no-any
+  payload?: any;
+  meta?: any;
+  error?: any;
 }

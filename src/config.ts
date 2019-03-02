@@ -1,4 +1,3 @@
-// tslint:disable:no-http-string
 export const config: {
   url: string;
   gaCode: string;

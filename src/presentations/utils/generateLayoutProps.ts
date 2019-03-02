@@ -18,7 +18,7 @@ export interface ILayoutProps {
   twitterAccount: string;
   pageType: string;
   children: string;
-  state: any; // tslint:disable-line:no-any
+  state: any;
   scripts: string[];
   stylesheets: string[];
 }

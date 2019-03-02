@@ -97,10 +97,10 @@ export class Store<T, P> {
         this.state = nextState;
 
         if (process && process.env.NODE_ENV !== 'production') {
-          /* tslint:disable:no-console */
+          /* eslint-disable no-console */
           console.log('%cAction:', 'color: #76b6c8; font-weight: bold;', action);
           console.log('%cState:', 'color: #2e4551; font-weight: bold;', this.state);
-          /* tslint:enable:no-console */
+          /* eslint-enable no-console */
         }
 
         this.dispatchChange();

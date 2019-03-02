@@ -3,7 +3,6 @@ import { AxiosResponse } from 'axios';
 import { ICoffeeBean } from 'interfaces';
 import { req } from 'services/utils';
 
-// tslint:disable-next-line:variable-name typedef
 export const CoffeeBean = {
   fetch: (): Promise<ICoffeeBean[]> => {
     return new Promise(

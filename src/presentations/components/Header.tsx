@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-// tslint:disable-next-line:function-name
 export function Header(props: { isSignedIn: boolean }) {
   return (
     <header className="Header">

@@ -1,4 +1,3 @@
-// tslint:disable:react-a11y-anchors react-no-dangerous-html
 import * as React from 'react';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
@@ -13,9 +12,7 @@ export interface IProps {
   shops: IShop[];
 }
 
-// tslint:disable-next-line: completed-docs
 export class AppPage extends React.Component<IProps> {
-  // tslint:disable:max-func-body-length
   public render(): JSX.Element {
     const coffeeBeans: ICoffeeBean[] = this.props.coffeeBeans;
     const plans: IPlan[] = this.props.plans;
