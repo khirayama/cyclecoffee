@@ -28,12 +28,12 @@ function preHandler(req: express.Request, res: express.Response, next: express.N
 }
 
 function authMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
-  req.isSignedIn = req.cookies.session === 'true';
+  req.isSignedIn = !!req.cookies.session;
   next();
 }
 
 function signInMockHandler(req: express.Request, res: express.Response): void {
-  res.cookie('session', true);
+  res.cookie('session', {});
   res.redirect(req.headers.referer);
 }
 
