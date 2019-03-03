@@ -32,9 +32,12 @@ export class AppPage extends React.Component<IProps> {
               );
             })}
           </ul>
-          <div>次回のコーヒー豆</div>
+          <div>次回お届け予定のコーヒー豆</div>
+          <CoffeeBeanCard coffeeBean={coffeeBeans[0]} />
+          <small>生産状況により代理豆をお届けする場合があります。ご了承ください。</small>
           <div>ロースター紹介</div>
           <div>スキップ</div>
+          <input type="checkbox" checked={false} onChange={() => console.log('change')} />
           <div />
         </div>
         <Footer />
