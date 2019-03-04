@@ -13,6 +13,15 @@ declare global {
   }
 }
 
+export type IDispatch = (action: IAction) => void;
+
+export interface IAction {
+  actionType: Symbol;
+  payload?: any;
+  meta?: any;
+  error?: any;
+}
+
 export interface IPlan {
   id: string;
   name: string;
