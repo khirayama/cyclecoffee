@@ -1,12 +1,10 @@
-export type IDispatch = (action: IAction) => void;
+import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 
 export interface IState {
-  count: number;
-}
-
-export interface IAction {
-  actionType: Symbol;
-  payload?: any;
-  meta?: any;
-  error?: any;
+  isSignedIn: boolean;
+  plans: IPlan[];
+  coffeeBeans: ICoffeeBean[];
+  shops: IShop[];
+  isSkipped: boolean;
+  selectedCoffeeBeanIds: string[];
 }

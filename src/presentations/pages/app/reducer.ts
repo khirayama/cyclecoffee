@@ -1,5 +1,6 @@
-import { actionTypes } from 'presentations/pages/home/actionTypes';
-import { IAction, IState } from 'presentations/pages/home/interfaces';
+import { actionTypes } from 'presentations/pages/app/actionTypes';
+import { IAction } from 'interfaces';
+import { IState } from 'presentations/pages/app/interfaces';
 
 export function reducer(state: IState, action: IAction): IState {
   const newState: IState = JSON.parse(JSON.stringify(state));
