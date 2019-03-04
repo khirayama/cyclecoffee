@@ -2,12 +2,16 @@ import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { ICoffeeBean, IPlan, IShop } from 'interfaces';
+import { IAction, ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { AppPage, IProps as IAppPageProps } from 'presentations/components/AppPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 import { CoffeeBean } from 'services/CoffeeBean';
 import { Plan } from 'services/Plan';
 import { Shop } from 'services/Shop';
+import { Provider } from 'utils/Container';
+import { Store } from 'utils/Store';
+import { reducer } from 'presentations/pages/app/reducer';
+import { IState } from 'presentations/pages/app/interfaces';
 
 export function appHandler(req: express.Request, res: express.Response): void {
   Promise.all([Shop.fetch(), CoffeeBean.fetch(), Plan.fetch()]).then((result: [IShop[], ICoffeeBean[], IPlan[]]) => {
@@ -24,6 +28,7 @@ export function appHandler(req: express.Request, res: express.Response): void {
       isSkipped: session ? session.isSkipped : false,
     };
 
+    const store: Store<IState, IAction> = new Store(state, reducer);
     const props: ILayoutProps = generateLayoutProps();
     props.path = req.originalUrl;
     props.route = req.route.path;
@@ -33,7 +38,7 @@ export function appHandler(req: express.Request, res: express.Response): void {
     props.image = 'TODO';
     props.scripts = ['/pages/app/bundle.js'];
     props.stylesheets = ['/pages/app/index.css'];
-    props.children = renderToString(React.createElement(AppPage, state));
+    props.children = renderToString(React.createElement(Provider, { store }, React.createElement(AppPage, state)));
     props.state = state;
 
     res.send(req.compiledFunction({ props }));
