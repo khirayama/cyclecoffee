@@ -33,7 +33,12 @@ function authMockHandler(req: express.Request, res: express.Response, next: expr
 }
 
 function signInMockHandler(req: express.Request, res: express.Response): void {
-  res.cookie('session', {});
+  const session = {
+    selectedCoffeeBeanIds: [],
+    isSkipped: false,
+    planId: null,
+  };
+  res.cookie('session', session);
   res.redirect(req.headers.referer);
 }
 
