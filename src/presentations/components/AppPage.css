@@ -2,6 +2,7 @@
 @import 'components/Header';
 @import 'components/Footer';
 @import 'components/CoffeeBeanCard';
+@import 'components/CoffeeBeanSelectButton';
 
 .AppPage {
   .AppPage--Content {
