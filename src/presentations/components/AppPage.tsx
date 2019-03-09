@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { CoffeeBeanCard } from 'presentations/components/CoffeeBeanCard';
-import { Footer } from 'presentations/components/Footer';
-import { Header } from 'presentations/components/Header';
+import { ShopCard } from 'presentations/components/ShopCard';
 import { CoffeeBeanSelectButtonContainer } from 'presentations/containers/CoffeeBeanSelectButtonContainer';
 
 export interface IProps {
@@ -25,35 +24,26 @@ export class AppPage extends React.Component<IProps> {
 
     return (
       <div className="AppPage">
-        <Header isSignedIn={this.props.isSignedIn} />
         <div className="AppPage--Content">
-          {selectedCoffeeBeanIds.length ? (
-            <>
-              <div>次回お届け予定のコーヒー豆</div>
-              <CoffeeBeanCard coffeeBean={coffeeBeans[0]} />
-              <small>生産状況により代理豆をお届けする場合があります。ご了承ください。</small>
-            </>
-          ) : (
-            <>
-              <div>最初のコーヒー豆を選ぼう</div>
-              <ul className="AppPage--Content--CoffeeBeanList">
-                {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
-                  return (
-                    <li key={coffeeBean.id} className="AppPage--Content--CoffeeBeanList--Item">
-                      <CoffeeBeanCard coffeeBean={coffeeBean} />
-                      <CoffeeBeanSelectButtonContainer />
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
-          )}
-          <div>ロースター紹介</div>
+          <div>次回お届け予定のコーヒー豆</div>
+          <ul className="AppPage--Content--CoffeeBeanList">
+            {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
+              return (
+                <li key={coffeeBean.id} className="AppPage--Content--CoffeeBeanList--Item">
+                  <div>
+                    <CoffeeBeanCard coffeeBean={coffeeBean} />
+                    <CoffeeBeanSelectButtonContainer />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+          <small>生産状況により代理豆をお届けする場合があります。ご了承ください。</small>
+          <ShopCard shop={shops[0]} />
           <div>スキップ</div>
           <input type="checkbox" checked={isSkipped} onChange={() => console.log('change')} />
           <div />
         </div>
-        <Footer />
       </div>
     );
   }
