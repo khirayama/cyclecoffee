@@ -9,7 +9,7 @@ import { CoffeeBean } from 'services/CoffeeBean';
 import { Plan } from 'services/Plan';
 import { Shop } from 'services/Shop';
 
-export function homeHandler(req: express.Request, res: express.Response): void {
+export function welcomeHandler(req: express.Request, res: express.Response): void {
   Promise.all([Shop.fetch(), CoffeeBean.fetch(), Plan.fetch()]).then((result: [IShop[], ICoffeeBean[], IPlan[]]) => {
     const shops: IShop[] = result[0];
     const coffeeBeans: ICoffeeBean[] = result[1];

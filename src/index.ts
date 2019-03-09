@@ -17,7 +17,7 @@ import {
 } from 'handlers/apiMockHandlers';
 import { appHandler } from 'handlers/appHandler';
 import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
-import { homeHandler } from 'handlers/homeHandler';
+import { welcomeHandler } from 'handlers/welcomeHandler';
 import { shopHandler } from 'handlers/shopHandler';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
@@ -53,8 +53,8 @@ const api: express.Router = express.Router();
 web
   .use(preHandler)
   .use(authMockHandler)
-  .get('/', homeHandler)
-  .get('/app', appHandler)
+  .get('/', appHandler)
+  .get('/welcome', welcomeHandler)
   .get('/signin', signInMockHandler)
   .get('/signup', signInMockHandler)
   .get('/signout', signOutMockHandler)
