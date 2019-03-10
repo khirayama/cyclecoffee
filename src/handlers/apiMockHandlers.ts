@@ -423,8 +423,8 @@ const shops: IShop[] = [
   {
     id: 'saredo',
     name: 'Saredo Coffee',
-    logoUrl: '/images/shop_logo_sample.webp',
-    imageUrl: '/images/shop_sample.webp',
+    logoUrl: '/images/shop_logo_sample.png',
+    imageUrl: '/images/shop_sample.png',
     address: '福岡県福岡市中央区六本松3丁目11-33-101',
   },
 ];
