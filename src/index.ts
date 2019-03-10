@@ -17,6 +17,7 @@ import {
 } from 'handlers/apiMockHandlers';
 import { appHandler } from 'handlers/appHandler';
 import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
+import { coffeeBeansHandler } from 'handlers/coffeeBeansHandler';
 import { welcomeHandler } from 'handlers/welcomeHandler';
 import { shopHandler } from 'handlers/shopHandler';
 
@@ -58,6 +59,7 @@ web
   .get('/signin', signInMockHandler)
   .get('/signup', signInMockHandler)
   .get('/signout', signOutMockHandler)
+  .get('/coffee-beans', coffeeBeansHandler)
   .get('/coffee-beans/:id', coffeeBeanHandler)
   .get('/shops/:id', shopHandler);
 api
