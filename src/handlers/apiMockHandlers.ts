@@ -147,6 +147,7 @@ const shops: IShop[] = [
   {
     id: 'saredo',
     name: 'Saredo Coffee',
+    logoUrl: '/images/shop_logo_sample.webp',
     imageUrl: '/images/shop_sample.webp',
   },
 ];

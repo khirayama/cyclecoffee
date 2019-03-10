@@ -34,6 +34,7 @@ export interface IPlan {
 export interface IShop {
   id: string;
   name: string;
+  logoUrl: string;
   imageUrl: string;
 }
 
