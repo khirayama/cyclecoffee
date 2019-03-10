@@ -2,11 +2,15 @@ import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { ICoffeeBean, IShop } from 'interfaces';
+import { IAction, ICoffeeBean, IShop } from 'interfaces';
 import { CoffeeBeanPage, IProps as ICoffeeBeanPageProps } from 'presentations/components/CoffeeBeanPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 import { CoffeeBean } from 'services/CoffeeBean';
 import { Shop } from 'services/Shop';
+import { Provider } from 'utils/Container';
+import { Store } from 'utils/Store';
+import { reducer } from 'presentations/pages/coffee-beans/show/reducer';
+import { IState } from 'presentations/pages/coffee-beans/show/interfaces';
 
 export function coffeeBeanHandler(req: express.Request, res: express.Response): void {
   CoffeeBean.find(req.params.id).then((coffeeBean: ICoffeeBean) => {
@@ -17,6 +21,7 @@ export function coffeeBeanHandler(req: express.Request, res: express.Response): 
         coffeeBean,
       };
 
+      const store: Store<IState, IAction> = new Store(state, reducer);
       const props: ILayoutProps = generateLayoutProps();
       props.path = req.originalUrl;
       props.route = req.route.path;
@@ -28,7 +33,9 @@ export function coffeeBeanHandler(req: express.Request, res: express.Response): 
       props.image = 'TODO';
       props.scripts = ['/pages/coffee-beans/show/bundle.js'];
       props.stylesheets = ['/pages/coffee-beans/show/index.css'];
-      props.children = renderToString(React.createElement(CoffeeBeanPage, state));
+      props.children = renderToString(
+        React.createElement(Provider, { store }, React.createElement(CoffeeBeanPage, state)),
+      );
       props.state = state;
 
       res.send(req.compiledFunction({ props }));

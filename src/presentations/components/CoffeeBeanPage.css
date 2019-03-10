@@ -1,13 +1,34 @@
 @import 'application/vars';
-@import 'components/Header';
-@import 'components/Footer';
+@import 'components/CoffeeBeanSelectButton';
+@import 'components/ShopCard';
 
 .CoffeeBeanPage {
+  .CoffeeBeanPage--CoffeeBeanImage {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .CoffeeBeanPage--CoffeeBean {
-    padding: 16px 8px;
+    padding: 12px;
     width: 100%;
     max-width: $width-content;
     margin: 0 auto;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: $font-bold;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    .CoffeeBeanSelectButton {
+      margin: 12px 0;
+    }
 
     .CoffeeBeanPage--CoffeeBean--ShopName {
       img {
@@ -37,11 +58,16 @@
     }
   }
 
-  h3 {
-    margin: 24px 0;
+  table,
+  tr,
+  td,
+  th {
+    border: $border;
   }
-
-  img {
+  table {
     width: 100%;
+  }
+  td {
+    padding: 4px;
   }
 }

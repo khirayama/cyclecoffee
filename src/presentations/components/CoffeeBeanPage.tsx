@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 import * as React from 'react';
 
 import { ICoffeeBean, IShop } from 'interfaces';
-import { Footer } from 'presentations/components/Footer';
-import { Header } from 'presentations/components/Header';
+import { CoffeeBeanSelectButtonContainer } from 'presentations/containers/CoffeeBeanSelectButtonContainer';
+import { ShopCard } from 'presentations/components/ShopCard';
 
 export interface IProps {
   isSignedIn: boolean;
@@ -33,14 +33,14 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
     // For scale
     const xScale = d3
       .scaleLinear()
-      .domain([0, 20])
+      .domain([0, 15])
       .range([margin.left, width - margin.right]);
     const yScale = d3
       .scaleLinear()
       .domain([0, 300])
       .range([height - margin.bottom, margin.top]);
     // For axis
-    const axisx = d3.axisBottom(xScale).ticks(20);
+    const axisx = d3.axisBottom(xScale).ticks(15);
     const axisy = d3.axisLeft(yScale).ticks(5);
     svg
       .append('g')
@@ -89,14 +89,13 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
 
     return (
       <div className="CoffeeBeanPage">
-        <Header isSignedIn={this.props.isSignedIn} />
+        <div className="CoffeeBeanPage--CoffeeBeanImage">
+          <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+        </div>
         <div className="CoffeeBeanPage--CoffeeBean">
           <h1>{coffeeBean.name}</h1>
-          <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
-          <div className="CoffeeBeanPage--CoffeeBean--SelectButton">
-            <button disabled={!this.props.isSignedIn}>注文豆に選択</button>
-          </div>
-          <h3>生豆情報</h3>
+          <p>{coffeeBean.description}</p>
+          <CoffeeBeanSelectButtonContainer />
           <table>
             <tbody>
               <tr>
@@ -125,21 +124,14 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
               </tr>
             </tbody>
           </table>
-          <h3>焙煎プロファイル</h3>
           <div ref={this.profileRef} />
           <p>
             <span>{coffeeBean.roastProfile.roast}</span>
             <span>{coffeeBean.roastProfile.machine}</span>
             <span>{coffeeBean.roastProfile.season}</span>
           </p>
-          <h2 className="CoffeeBeanPage--CoffeeBean--ShopName">
-            <a href={`/shops/${shop.id}`}>
-              <img src={shop.imageUrl} alt={shop.name} />
-              <span>{shop.name}</span>
-            </a>
-          </h2>
+          <ShopCard shop={shop} />
         </div>
-        <Footer />
       </div>
     );
   }
