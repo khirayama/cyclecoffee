@@ -4,6 +4,144 @@ import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 
 const coffeeBeans: ICoffeeBean[] = [
   {
+    id: 'brazil',
+    name: 'ブラジル',
+    description: 'ブラジル説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
+    id: 'brazil2',
+    name: 'ブラジル #2',
+    description: 'ブラジル説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
+    id: 'mandelin',
+    name: 'マンデリン',
+    description: 'マンデリン説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
     id: 'gohobi',
     name: 'ごほうびブレンド',
     description: 'ごほうびブレンド説明',
@@ -120,6 +258,144 @@ const coffeeBeans: ICoffeeBean[] = [
         },
         {
           time: 3,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
+    id: 'decaf-gua',
+    name: 'ディカフェ グアテマラ',
+    description: 'ディカフェ グアテマラ説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
+    id: 'decaf-2',
+    name: 'ディカフェ エチオピア',
+    description: 'ディカフェ エチオピア説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
+          temperature: 110,
+        },
+        {
+          time: 5,
+          temperature: 170,
+        },
+        {
+          time: 8,
+          temperature: 210,
+        },
+        {
+          time: 11,
+          temperature: 220,
+        },
+        {
+          time: 13,
+          temperature: 225,
+        },
+      ],
+    },
+  },
+  {
+    id: 'decaf-3',
+    name: 'ディカフェ ブラジル',
+    description: 'ディカフェ エチオピア説明',
+    shopId: 'saredo',
+    imageUrl: '/images/coffee_bean_sample.jpg',
+    greenCoffeeBean: {
+      name: 'ブラジル',
+      country: 'ブラジル',
+      farm: 'ブラジル農園',
+      height: 1805,
+      breed: 'ブルボン',
+      process: 'フーリーウォッシュド',
+    },
+    roastProfile: {
+      machine: 'スマートロースター 熱風式70kg釜 プロパンガス',
+      season: '2019年2月12日',
+      roast: '中煎り',
+      profile: [
+        {
+          time: 0,
+          temperature: 190,
+        },
+        {
+          time: 1,
           temperature: 110,
         },
         {
