@@ -44,6 +44,9 @@ export class AppPage extends React.Component<IProps> {
           <div className="AppPage--Content--Shop">
             <ShopCard shop={shops[0]} />
           </div>
+          <div className="AppPage--Content--Link">
+            <a href="/coffee-beans">全てのコーヒー豆から探す</a>
+          </div>
           <div className="AppPage--Content--Skip">
             <div className="AppPage--Content--Skip--Label">スキップ</div>
             <div className="AppPage--Content--Skip--Checkbox">

@@ -55,6 +55,12 @@
       padding: 0 12px;
     }
 
+    .AppPage--Content--Link {
+      width: 100%;
+      padding: 12px;
+      text-align: right;
+    }
+
     .AppPage--Content--Skip {
       $size: 1.5rem;
       width: 100%;
