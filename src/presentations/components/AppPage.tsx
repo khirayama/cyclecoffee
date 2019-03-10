@@ -50,7 +50,7 @@ export class AppPage extends React.Component<IProps> {
           <div className="AppPage--Content--Skip">
             <div className="AppPage--Content--Skip--Label">スキップ</div>
             <div className="AppPage--Content--Skip--Checkbox">
-              <input type="checkbox" onChange={() => console.log('change')} />
+              <input type="checkbox" />
             </div>
             <p className="AppPage--Content--Skip--Attention">
               締切日時時点でONの場合、次回配送をスキップします。返金は行われなわれず、クーポンを配布いたしますので、ご注意ください。
