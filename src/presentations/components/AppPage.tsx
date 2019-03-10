@@ -27,7 +27,7 @@ export class AppPage extends React.Component<IProps> {
           <div className="AppPage--Content--Deadline">
             <span>
               <i className="Icon">access_time</i>
-              3月15日 12:00 まで
+              3月10日 12:00 まで
             </span>
           </div>
           <ul className="AppPage--Content--CoffeeBeanList">
