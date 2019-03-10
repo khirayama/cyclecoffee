@@ -7,13 +7,15 @@ export function CoffeeBeanCard(props: { coffeeBean: ICoffeeBean }): JSX.Element 
 
   return (
     <div className="CoffeeBeanCard">
-      <div className="CoffeeBeanCard--Content">
-        <a href={`/coffee-beans/${coffeeBean.id}`}>
+      <a href={`/coffee-beans/${coffeeBean.id}`}>
+        <div className="CoffeeBeanCard--Image">
           <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+        </div>
+        <div className="CoffeeBeanCard--Content">
           <h2>{coffeeBean.name}</h2>
           <p>{coffeeBean.description}</p>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   );
 }

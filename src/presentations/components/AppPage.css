@@ -3,17 +3,50 @@
 @import 'components/CoffeeBeanSelectButton';
 
 .AppPage {
+  .AppPage--Heading {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 12px;
+  }
+
   .AppPage--Content {
     width: 100%;
     max-width: $width-content;
     margin: 0 auto;
 
+    .AppPage--Content--Deadline {
+      text-align: center;
+
+      .Icon {
+        margin-right: 8px;
+      }
+
+      span {
+        display: inline-block;
+        color: $color-text-secondary;
+        font-size: 0.875rem;
+        background: $color-shadow;
+        padding: 4px 24px;
+        border-radius: 16px;
+      }
+    }
+
     .AppPage--Content--CoffeeBeanList {
       display: flex;
+      padding: 0 0 12px;
+      width: 100%;
+      /* overflow: visible; */
+      overflow: scroll;
+      -webkit-overflow-scrolling: auto;
+      will-change: transform;
 
       .AppPage--Content--CoffeeBeanList--Item {
+        $width: 100%;
         flex: 1;
-        display: inline-block;
+        width: $width;
+        min-width: $width;
+        max-width: $width;
+        padding: 12px;
       }
     }
   }

@@ -1,10 +1,10 @@
 @import 'application/vars';
 
 .CoffeeBeanSelectButton {
-  border-radius: $radius;
-  background: $color-text-attention;
-  color: $color-white;
-  padding: 12px;
+  border-radius: 32px;
+  background: $color-white;
+  border: solid 2px $color-text;
+  padding: 8px 16px;
   cursor: pointer;
 
   &.CoffeeBeanSelectButton__Disabled {
