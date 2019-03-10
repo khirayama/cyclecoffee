@@ -60,6 +60,11 @@ section {
   display: block;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav,
 ol,
 ul {
@@ -79,7 +84,6 @@ td {
 
 img {
   vertical-align: top;
-  max-width: 100%;
   height: auto;
 }
 
