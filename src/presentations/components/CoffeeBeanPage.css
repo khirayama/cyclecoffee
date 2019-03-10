@@ -5,6 +5,8 @@
 
 .CoffeeBeanPage {
   $height-header: 65px;
+  max-width: 560px;
+  margin: 0 auto;
 
   .CoffeeBeanPage--Content {
     padding-bottom: $height-header;
