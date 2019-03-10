@@ -1,27 +1,45 @@
 @import 'application/vars';
-@import 'components/Header';
-@import 'components/Footer';
 @import 'components/CoffeeBeanCard';
 
 .ShopPage {
+  .ShopPage--ShopImage {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .ShopPage--CoffeeBean {
-    padding: 16px 8px;
+    padding: 12px;
     width: 100%;
     max-width: $width-content;
     margin: 0 auto;
 
-    .ShopPage--CoffeeBean--List {
-      display: flex;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: $font-bold;
+      margin-bottom: 12px;
+    }
 
-      .ShopPage--CoffeeBean--List--Item {
-        display: inline-block;
+    p {
+      margin: 12px 0;
+    }
+
+    .ShopPage--Content--CoffeeBeanList {
+      display: flex;
+      width: 100%;
+      /* overflow: visible; */
+      overflow: scroll;
+      -webkit-overflow-scrolling: auto;
+      will-change: transform;
+
+      .ShopPage--Content--CoffeeBeanList--Item {
+        $width: 100%;
         flex: 1;
-        padding: 12px;
+        width: $width;
+        min-width: $width;
+        max-width: $width;
       }
     }
-  }
-
-  img {
-    width: 100%;
   }
 }

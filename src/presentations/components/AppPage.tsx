@@ -34,9 +34,7 @@ export class AppPage extends React.Component<IProps> {
             {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
               return (
                 <li key={coffeeBean.id} className="AppPage--Content--CoffeeBeanList--Item">
-                  <div>
-                    <CoffeeBeanCard coffeeBean={coffeeBean} />
-                  </div>
+                  <CoffeeBeanCard coffeeBean={coffeeBean} />
                 </li>
               );
             })}
