@@ -11,7 +11,7 @@ export function Navigation(props: { pathname: string }): JSX.Element {
     {
       name: 'history',
       icon: 'history',
-      href: '/history',
+      href: '/histories',
     },
     {
       name: 'profile',
