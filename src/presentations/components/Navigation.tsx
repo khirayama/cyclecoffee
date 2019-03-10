@@ -4,17 +4,17 @@ import * as React from 'react';
 export function Navigation(props: { pathname: string }): JSX.Element {
   const navItems = [
     {
-      name: 'home',
+      name: 'ホーム',
       icon: 'home',
       href: '/',
     },
     {
-      name: 'history',
+      name: '履歴',
       icon: 'history',
       href: '/histories',
     },
     {
-      name: 'profile',
+      name: 'プロフィール',
       icon: 'person',
       href: '/profile',
     },
