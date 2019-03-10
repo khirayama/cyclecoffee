@@ -6,6 +6,8 @@
   $height-header: 65px;
 
   .ShopPage--Content {
+    padding-bottom: $height-header;
+
     .ShopPage--Content--ShopImage {
       img {
         width: 100%;
