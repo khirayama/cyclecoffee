@@ -1,0 +1,57 @@
+@import 'application/vars';
+
+html,
+body,
+.application {
+  width: 100%;
+  height: 100%;
+}
+
+.CoffeeBeansPage {
+  width: 100%;
+  height: 100%;
+
+  .CoffeeBeansPage--CoffeeBeanList {
+    width: 100%;
+    height: 100%;
+
+    .CoffeeBeansPage--CoffeeBeanList--Item {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% / 2);
+      height: calc(100% / 3);
+      overflow: hidden;
+
+      .CoffeeBeansPage--CoffeeBeanList--Item--Image {
+        width: 100%;
+        height: 100%;
+
+        .CoffeeBeansPage--CoffeeBeanList--Item--Image--Placeholder {
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: 100%;
+          }
+        }
+      }
+
+      .CoffeeBeansPage--CoffeeBeanList--Item--Content {
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        color: $color-white;
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+}
