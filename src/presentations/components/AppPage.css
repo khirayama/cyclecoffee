@@ -2,8 +2,11 @@
 @import 'components/CoffeeBeanCard';
 @import 'components/CoffeeBeanSelectButton';
 @import 'components/ShopCard';
+@import 'components/Navigation';
 
 .AppPage {
+  $height-header: 65px;
+
   .AppPage--Heading {
     font-size: 1.25rem;
     text-align: center;
@@ -14,6 +17,7 @@
     width: 100%;
     max-width: $width-content;
     margin: 0 auto;
+    padding-bottom: $height-header;
 
     .AppPage--Content--Deadline {
       text-align: center;
@@ -114,5 +118,9 @@
         font-size: 0.75rem;
       }
     }
+  }
+
+  .Navigation {
+    height: $height-header;
   }
 }

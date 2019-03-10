@@ -1,73 +1,68 @@
 @import 'application/vars';
 @import 'components/CoffeeBeanSelectButton';
 @import 'components/ShopCard';
+@import 'components/Navigation';
 
 .CoffeeBeanPage {
-  .CoffeeBeanPage--CoffeeBeanImage {
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
+  $height-header: 65px;
 
-  .CoffeeBeanPage--CoffeeBean {
-    padding: 12px;
-    width: 100%;
-    max-width: $width-content;
-    margin: 0 auto;
+  .CoffeeBeanPage--Content {
+    padding-bottom: $height-header;
 
-    h1 {
-      font-size: 1.5rem;
-      font-weight: $font-bold;
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin: 12px 0;
-    }
-
-    .CoffeeBeanSelectButton {
-      margin: 12px 0;
-    }
-
-    .CoffeeBeanPage--CoffeeBean--ShopName {
+    .CoffeeBeanPage--Content--CoffeeBeanImage {
       img {
-        width: auto;
-        height: 60px;
-      }
-      span {
-        line-height: 60px;
-        margin-left: 12px;
+        width: 100%;
+        height: auto;
       }
     }
 
-    .CoffeeBeanPage--CoffeeBean--SelectButton {
-      text-align: right;
+    .CoffeeBeanPage--Content--CoffeeBean {
+      padding: 12px;
+      width: 100%;
+      max-width: $width-content;
+      margin: 0 auto;
 
-      button {
-        border-radius: $radius;
-        background: $color-text-attention;
-        color: $color-white;
-        padding: 12px;
-        cursor: pointer;
+      h1 {
+        font-size: 1.5rem;
+        font-weight: $font-bold;
+        margin-bottom: 12px;
+      }
 
-        &[disabled] {
-          background: $color-divider;
+      p {
+        margin: 12px 0;
+      }
+
+      .CoffeeBeanSelectButton {
+        margin: 12px 0;
+      }
+
+      .CoffeeBeanPage--Content--CoffeeBean--ShopName {
+        img {
+          width: auto;
+          height: 60px;
+        }
+        span {
+          line-height: 60px;
+          margin-left: 12px;
         }
       }
     }
+
+    table,
+    tr,
+    td,
+    th {
+      border: $border;
+    }
+    table {
+      width: 100%;
+    }
+    td {
+      padding: 4px;
+    }
   }
 
-  table,
-  tr,
-  td,
-  th {
-    border: $border;
-  }
-  table {
-    width: 100%;
-  }
-  td {
-    padding: 4px;
+  .Navigation {
+    height: $height-header;
   }
 }

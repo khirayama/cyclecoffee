@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { CoffeeBeanCard } from 'presentations/components/CoffeeBeanCard';
+import { Navigation } from 'presentations/components/Navigation';
 import { ShopCard } from 'presentations/components/ShopCard';
 
 export interface IProps {
@@ -55,6 +56,7 @@ export class AppPage extends React.Component<IProps> {
             </p>
           </div>
         </div>
+        <Navigation pathname="/" />
       </div>
     );
   }

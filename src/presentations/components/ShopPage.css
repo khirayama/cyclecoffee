@@ -1,45 +1,54 @@
 @import 'application/vars';
 @import 'components/CoffeeBeanCard';
+@import 'components/Navigation';
 
 .ShopPage {
-  .ShopPage--ShopImage {
-    img {
+  $height-header: 65px;
+
+  .ShopPage--Content {
+    .ShopPage--Content--ShopImage {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .ShopPage--Content--CoffeeBean {
+      padding: 12px;
       width: 100%;
-      height: auto;
+      max-width: $width-content;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 1.5rem;
+        font-weight: $font-bold;
+        margin-bottom: 12px;
+      }
+
+      p {
+        margin: 12px 0;
+      }
+
+      .ShopPage--Content--CoffeeBeanList {
+        display: flex;
+        width: 100%;
+        /* overflow: visible; */
+        overflow: scroll;
+        -webkit-overflow-scrolling: auto;
+        will-change: transform;
+
+        .ShopPage--Content--CoffeeBeanList--Item {
+          $width: 100%;
+          flex: 1;
+          width: $width;
+          min-width: $width;
+          max-width: $width;
+        }
+      }
     }
   }
 
-  .ShopPage--CoffeeBean {
-    padding: 12px;
-    width: 100%;
-    max-width: $width-content;
-    margin: 0 auto;
-
-    h1 {
-      font-size: 1.5rem;
-      font-weight: $font-bold;
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin: 12px 0;
-    }
-
-    .ShopPage--Content--CoffeeBeanList {
-      display: flex;
-      width: 100%;
-      /* overflow: visible; */
-      overflow: scroll;
-      -webkit-overflow-scrolling: auto;
-      will-change: transform;
-
-      .ShopPage--Content--CoffeeBeanList--Item {
-        $width: 100%;
-        flex: 1;
-        width: $width;
-        min-width: $width;
-        max-width: $width;
-      }
-    }
+  .Navigation {
+    height: $height-header;
   }
 }

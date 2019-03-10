@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ICoffeeBean, IShop } from 'interfaces';
 import { CoffeeBeanSelectButtonContainer } from 'presentations/containers/CoffeeBeanSelectButtonContainer';
 import { ShopCard } from 'presentations/components/ShopCard';
+import { Navigation } from 'presentations/components/Navigation';
 
 export interface IProps {
   isSignedIn: boolean;
@@ -89,49 +90,52 @@ export class CoffeeBeanPage extends React.Component<IProps, {}> {
 
     return (
       <div className="CoffeeBeanPage">
-        <div className="CoffeeBeanPage--CoffeeBeanImage">
-          <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+        <div className="CoffeeBeanPage--Content">
+          <div className="CoffeeBeanPage--Content--CoffeeBeanImage">
+            <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+          </div>
+          <div className="CoffeeBeanPage--Content--CoffeeBean">
+            <h1>{coffeeBean.name}</h1>
+            <p>{coffeeBean.description}</p>
+            <CoffeeBeanSelectButtonContainer />
+            <table>
+              <tbody>
+                <tr>
+                  <td>名前</td>
+                  <td>{coffeeBean.greenCoffeeBean.name}</td>
+                </tr>
+                <tr>
+                  <td>地域</td>
+                  <td>{coffeeBean.greenCoffeeBean.country}</td>
+                </tr>
+                <tr>
+                  <td>産地標高</td>
+                  <td>{coffeeBean.greenCoffeeBean.height}m</td>
+                </tr>
+                <tr>
+                  <td>精製所</td>
+                  <td>{coffeeBean.greenCoffeeBean.farm}</td>
+                </tr>
+                <tr>
+                  <td>品種</td>
+                  <td>{coffeeBean.greenCoffeeBean.breed}</td>
+                </tr>
+                <tr>
+                  <td>精製法</td>
+                  <td>{coffeeBean.greenCoffeeBean.process}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div ref={this.profileRef} />
+            <p>
+              <span>{coffeeBean.roastProfile.roast}</span>
+              <span>{coffeeBean.roastProfile.machine}</span>
+              <span>{coffeeBean.roastProfile.season}</span>
+            </p>
+            <ShopCard shop={shop} />
+          </div>
         </div>
-        <div className="CoffeeBeanPage--CoffeeBean">
-          <h1>{coffeeBean.name}</h1>
-          <p>{coffeeBean.description}</p>
-          <CoffeeBeanSelectButtonContainer />
-          <table>
-            <tbody>
-              <tr>
-                <td>名前</td>
-                <td>{coffeeBean.greenCoffeeBean.name}</td>
-              </tr>
-              <tr>
-                <td>地域</td>
-                <td>{coffeeBean.greenCoffeeBean.country}</td>
-              </tr>
-              <tr>
-                <td>産地標高</td>
-                <td>{coffeeBean.greenCoffeeBean.height}m</td>
-              </tr>
-              <tr>
-                <td>精製所</td>
-                <td>{coffeeBean.greenCoffeeBean.farm}</td>
-              </tr>
-              <tr>
-                <td>品種</td>
-                <td>{coffeeBean.greenCoffeeBean.breed}</td>
-              </tr>
-              <tr>
-                <td>精製法</td>
-                <td>{coffeeBean.greenCoffeeBean.process}</td>
-              </tr>
-            </tbody>
-          </table>
-          <div ref={this.profileRef} />
-          <p>
-            <span>{coffeeBean.roastProfile.roast}</span>
-            <span>{coffeeBean.roastProfile.machine}</span>
-            <span>{coffeeBean.roastProfile.season}</span>
-          </p>
-          <ShopCard shop={shop} />
-        </div>
+        <Navigation pathname="/" />
       </div>
     );
   }
