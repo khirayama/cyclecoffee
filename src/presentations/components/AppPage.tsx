@@ -41,11 +41,18 @@ export class AppPage extends React.Component<IProps> {
               );
             })}
           </ul>
-          <small>生産状況により代理豆をお届けする場合があります。ご了承ください。</small>
-          <ShopCard shop={shops[0]} />
-          <div>スキップ</div>
-          <input type="checkbox" checked={isSkipped} onChange={() => console.log('change')} />
-          <div />
+          <div className="AppPage--Content--Shop">
+            <ShopCard shop={shops[0]} />
+          </div>
+          <div className="AppPage--Content--Skip">
+            <div className="AppPage--Content--Skip--Label">スキップ</div>
+            <div className="AppPage--Content--Skip--Checkbox">
+              <input type="checkbox" onChange={() => console.log('change')} />
+            </div>
+            <p className="AppPage--Content--Skip--Attention">
+              締切日時時点でONの場合、次回配送をスキップします。返金は行われなわれず、クーポンを配布いたしますので、ご注意ください。
+            </p>
+          </div>
         </div>
       </div>
     );

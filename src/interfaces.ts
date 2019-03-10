@@ -36,6 +36,7 @@ export interface IShop {
   name: string;
   logoUrl: string;
   imageUrl: string;
+  address: string;
 }
 
 interface IGreenCoffeeBean {

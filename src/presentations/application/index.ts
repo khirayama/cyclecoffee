@@ -29,11 +29,11 @@ window.addEventListener(
 );
 
 // Service Worker
-window.addEventListener(
-  'DOMContentLoaded',
-  (): void => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-  },
-);
+// window.addEventListener(
+//   'DOMContentLoaded',
+//   (): void => {
+//     if ('serviceWorker' in navigator) {
+//       navigator.serviceWorker.register('/service-worker.js');
+//     }
+//   },
+// );

@@ -149,6 +149,7 @@ const shops: IShop[] = [
     name: 'Saredo Coffee',
     logoUrl: '/images/shop_logo_sample.webp',
     imageUrl: '/images/shop_sample.webp',
+    address: '福岡県福岡市中央区六本松3丁目11-33-101',
   },
 ];
 

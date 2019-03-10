@@ -1,6 +1,7 @@
 @import 'application/vars';
 @import 'components/CoffeeBeanCard';
 @import 'components/CoffeeBeanSelectButton';
+@import 'components/ShopCard';
 
 .AppPage {
   .AppPage--Heading {
@@ -33,7 +34,6 @@
 
     .AppPage--Content--CoffeeBeanList {
       display: flex;
-      padding: 0 0 12px;
       width: 100%;
       /* overflow: visible; */
       overflow: scroll;
@@ -47,6 +47,65 @@
         min-width: $width;
         max-width: $width;
         padding: 12px;
+      }
+    }
+
+    .AppPage--Content--Shop {
+      width: 100%;
+      padding: 0 12px;
+    }
+
+    .AppPage--Content--Skip {
+      $size: 1.5rem;
+      width: 100%;
+      padding: 24px 12px;
+
+      .AppPage--Content--Skip--Label {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - $size * 2);
+      }
+
+      .AppPage--Content--Skip--Checkbox {
+        display: inline-block;
+        vertical-align: top;
+
+        input[type='checkbox'] {
+          position: relative;
+          display: inline-block;
+          width: calc($size * 1.75);
+          height: $size;
+          border-radius: calc($size / 2);
+          background: $color-shadow;
+          transition: background 200ms ease-in-out;
+
+          &::after {
+            position: absolute;
+            display: inline-block;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            content: '';
+            width: calc($size - 2px);
+            height: calc($size - 2px);
+            border-radius: 50%;
+            background: $color-white;
+            transition: left 200ms ease-in-out;
+          }
+
+          &:checked {
+            background: $color-text-attention;
+
+            &::after {
+              left: calc(100% - $size + 1px);
+            }
+          }
+        }
+      }
+
+      .AppPage--Content--Skip--Attention {
+        color: $color-text-secondary;
+        font-size: 0.75rem;
       }
     }
   }
