@@ -12,7 +12,7 @@ import { Shop } from 'services/Shop';
 export function welcomeHandler(req: express.Request, res: express.Response): void {
   Promise.all([Shop.fetch(), CoffeeBean.fetch(), Plan.fetch()]).then((result: [IShop[], ICoffeeBean[], IPlan[]]) => {
     const shops: IShop[] = result[0];
-    const coffeeBeans: ICoffeeBean[] = result[1];
+    const coffeeBeans: ICoffeeBean[] = result[1].sort(() => Math.random() - 0.5).splice(0, 3);
     const plans: IPlan[] = result[2];
     const state: IHomePageProps = {
       isSignedIn: req.isSignedIn,

@@ -108,7 +108,7 @@ export class HomePage extends React.Component<IProps> {
                     <CoffeeBeanCard coffeeBean={coffeeBean} />
                     <div className="HomePage--CoffeeBeans--Content--List--Item--Roaster">
                       <a href={`/shops/${shop.id}`}>
-                        <img src={shop.imageUrl} alt={shop.name} />
+                        <img src={shop.logoUrl} alt={shop.name} />
                         {shop.name}
                       </a>
                     </div>
