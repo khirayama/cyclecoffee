@@ -46,8 +46,8 @@
     "express-useragent": "1.0.12",
     "morgan": "1.9.1",
     "pug": "2.0.3",
-    "react": "16.8.3",
-    "react-dom": "16.8.3"
+    "react": "16.8.4",
+    "react-dom": "16.8.4"
   },
   "devDependencies": {
     "@hint/formatter-codeframe": "2.0.1",
@@ -56,7 +56,7 @@
     "@types/node": "11.10.4",
     "@types/pug": "2.0.4",
     "@types/query-string": "6.2.0",
-    "@types/react": "16.8.6",
+    "@types/react": "16.8.7",
     "@types/react-dom": "16.8.2",
     "@typescript-eslint/eslint-plugin": "1.4.2",
     "autoprefixer": "9.4.9",
