@@ -22,6 +22,9 @@ import { welcomeHandler } from 'handlers/welcomeHandler';
 import { shopHandler } from 'handlers/shopHandler';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
+  // Auth
+  req.isSignedIn = !!req.cookies.session;
+  // Template Engine
   req.compiledFunction = pug.compileFile(path.resolve('dist', 'presentations', 'application', 'Layout.pug'), {
     basedir: path.resolve('dist', 'presentations'),
   });
@@ -29,7 +32,10 @@ function preHandler(req: express.Request, res: express.Response, next: express.N
 }
 
 function authMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
-  req.isSignedIn = !!req.cookies.session;
+  if (!req.isSignedIn) {
+    res.redirect('/welcome');
+    return;
+  }
   next();
 }
 
@@ -40,7 +46,7 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
     planId: null,
   };
   res.cookie('session', session);
-  res.redirect(req.headers.referer);
+  res.redirect('/');
 }
 
 function signOutMockHandler(req: express.Request, res: express.Response): void {
@@ -53,8 +59,7 @@ const api: express.Router = express.Router();
 
 web
   .use(preHandler)
-  .use(authMockHandler)
-  .get('/', appHandler)
+  .get('/', authMockHandler, appHandler)
   .get('/welcome', welcomeHandler)
   .get('/signin', signInMockHandler)
   .get('/signup', signInMockHandler)
