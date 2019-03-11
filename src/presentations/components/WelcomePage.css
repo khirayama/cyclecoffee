@@ -3,11 +3,11 @@
 @import 'components/Footer';
 @import 'components/CoffeeBeanCard';
 
-.HomePage {
-  .HomePage--Message {
+.WelcomePage {
+  .WelcomePage--Message {
     background: $color-background;
 
-    .HomePage--Message--Content {
+    .WelcomePage--Message--Content {
       padding: 48px 12px 96px;
       width: 100%;
       max-width: $width-content;
@@ -15,40 +15,40 @@
     }
   }
 
-  .HomePage--Navigation {
-    .HomePage--Navigation--List {
+  .WelcomePage--Navigation {
+    .WelcomePage--Navigation--List {
       display: inline-block;
 
-      .HomePage--Navigation--List--Item {
+      .WelcomePage--Navigation--List--Item {
         display: inline-block;
         padding: 12px 8px;
       }
     }
   }
 
-  .HomePage--Steps {
+  .WelcomePage--Steps {
     padding: 24px 0 48px;
 
-    .HomePage--Steps--Content {
+    .WelcomePage--Steps--Content {
       width: 100%;
       max-width: $width-content;
       margin: 0 auto;
 
-      .HomePage--Steps--Content--Heading {
+      .WelcomePage--Steps--Content--Heading {
         font-size: 1.5rem;
         text-align: center;
         padding: 8px 0 32px;
       }
 
-      .HomePage--Steps--Content--List {
+      .WelcomePage--Steps--Content--List {
         display: flex;
 
-        .HomePage--Steps--Content--List--Item {
+        .WelcomePage--Steps--Content--List--Item {
           display: inline-block;
           flex: 1;
           padding: 12px;
 
-          .HomePage--Steps--Content--List--Item--Step {
+          .WelcomePage--Steps--Content--List--Item--Step {
             width: 100%;
             height: 100%;
             border: $border;
@@ -63,30 +63,30 @@
     }
   }
 
-  .HomePage--Plans {
+  .WelcomePage--Plans {
     padding: 24px 0 48px;
     background: $color-background;
 
-    .HomePage--Plans--Content {
+    .WelcomePage--Plans--Content {
       width: 100%;
       max-width: $width-content;
       margin: 0 auto;
 
-      .HomePage--Plans--Content--Heading {
+      .WelcomePage--Plans--Content--Heading {
         font-size: 1.5rem;
         text-align: center;
         padding: 8px 0 32px;
       }
 
-      .HomePage--Plans--Content--List {
+      .WelcomePage--Plans--Content--List {
         display: flex;
 
-        .HomePage--Plans--Content--List--Item {
+        .WelcomePage--Plans--Content--List--Item {
           display: inline-block;
           flex: 1;
           padding: 12px;
 
-          .HomePage--Plans--Content--List--Item--Plan {
+          .WelcomePage--Plans--Content--List--Item--Plan {
             width: 100%;
             height: 100%;
             border: $border;
@@ -102,29 +102,29 @@
     }
   }
 
-  .HomePage--CoffeeBeans {
+  .WelcomePage--CoffeeBeans {
     padding: 24px 0 48px;
 
-    .HomePage--CoffeeBeans--Content {
+    .WelcomePage--CoffeeBeans--Content {
       width: 100%;
       max-width: $width-content;
       margin: 0 auto;
 
-      .HomePage--CoffeeBeans--Content--Heading {
+      .WelcomePage--CoffeeBeans--Content--Heading {
         font-size: 1.5rem;
         text-align: center;
         padding: 8px 0 32px;
       }
 
-      .HomePage--CoffeeBeans--Content--List {
+      .WelcomePage--CoffeeBeans--Content--List {
         display: flex;
 
-        .HomePage--CoffeeBeans--Content--List--Item {
+        .WelcomePage--CoffeeBeans--Content--List--Item {
           display: inline-block;
           flex: 1;
           padding: 12px;
 
-          .HomePage--CoffeeBeans--Content--List--Item--Roaster {
+          .WelcomePage--CoffeeBeans--Content--List--Item--Roaster {
             img {
               width: auto;
               height: 2rem;

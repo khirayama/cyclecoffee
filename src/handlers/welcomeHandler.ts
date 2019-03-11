@@ -3,7 +3,7 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
 import { ICoffeeBean, IPlan, IShop } from 'interfaces';
-import { HomePage, IProps as IHomePageProps } from 'presentations/components/HomePage';
+import { WelcomePage, IProps as IWelcomePageProps } from 'presentations/components/WelcomePage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 import { CoffeeBean } from 'services/CoffeeBean';
 import { Plan } from 'services/Plan';
@@ -14,7 +14,7 @@ export function welcomeHandler(req: express.Request, res: express.Response): voi
     const shops: IShop[] = result[0];
     const coffeeBeans: ICoffeeBean[] = result[1].sort(() => Math.random() - 0.5).splice(0, 3);
     const plans: IPlan[] = result[2];
-    const state: IHomePageProps = {
+    const state: IWelcomePageProps = {
       isSignedIn: req.isSignedIn,
       shops,
       coffeeBeans,
@@ -28,9 +28,9 @@ export function welcomeHandler(req: express.Request, res: express.Response): voi
     props.description = '月に2回、自信を持ってお勧めできるコーヒー豆をお届けします。';
     props.keywords = ['coffee', 'コーヒー', '珈琲', 'カフェ', 'cafe', 'うち', '定期便', 'サブスクリプション'].join(',');
     props.image = 'TODO';
-    props.scripts = ['/pages/home/bundle.js'];
-    props.stylesheets = ['/pages/home/index.css'];
-    props.children = renderToString(React.createElement(HomePage, state));
+    props.scripts = ['/pages/welcome/bundle.js'];
+    props.stylesheets = ['/pages/welcome/index.css'];
+    props.children = renderToString(React.createElement(WelcomePage, state));
     props.state = state;
 
     res.send(req.compiledFunction({ props }));

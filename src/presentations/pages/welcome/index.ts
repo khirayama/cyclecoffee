@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { HomePage } from 'presentations/components/HomePage';
+import { WelcomePage } from 'presentations/components/WelcomePage';
 
 window.addEventListener('DOMContentLoaded', () => {
   const el: HTMLElement = window.document.querySelector('.application');
-  ReactDOM.render(React.createElement(HomePage, window.state), el);
+  ReactDOM.render(React.createElement(WelcomePage, window.state), el);
 });
