@@ -89,7 +89,7 @@
           height: $size;
           border-radius: calc($size / 2);
           background: $color-shadow;
-          transition: background 200ms ease-in-out;
+          transition: background 140ms ease-in-out;
 
           &::after {
             position: absolute;
@@ -102,7 +102,7 @@
             height: calc($size - 2px);
             border-radius: 50%;
             background: $color-white;
-            transition: left 200ms ease-in-out;
+            transition: left 140ms ease-in-out;
           }
 
           &:checked {
