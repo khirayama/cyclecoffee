@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, node/no-unpublished-require */
 const path = require('path');
 
 const glob = require('glob');
