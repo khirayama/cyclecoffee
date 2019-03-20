@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { IAction } from 'interfaces';
+import { IAction, IState } from 'interfaces';
 import { CoffeeBeansPage } from 'presentations/components/CoffeeBeansPage';
 import { Provider } from 'utils/Container';
 import { Store } from 'utils/Store';
-import { reducer } from 'presentations/pages/coffee-beans/index/reducer';
-import { IState } from 'presentations/pages/coffee-beans/index/interfaces';
+import { reducer } from 'reducers';
 
 const store: Store<IState, IAction> = new Store(window.state, reducer);
 

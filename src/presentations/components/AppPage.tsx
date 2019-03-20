@@ -18,8 +18,8 @@ export class AppPage extends React.Component<IProps> {
   public render(): JSX.Element {
     const coffeeBeans: ICoffeeBean[] = this.props.coffeeBeans;
     const shops: IShop[] = this.props.shops;
-    const isSkipped: boolean = this.props.isSkipped;
-    const selectedCoffeeBeanIds: string[] = this.props.selectedCoffeeBeanIds;
+    // const isSkipped: boolean = this.props.isSkipped;
+    // const selectedCoffeeBeanIds: string[] = this.props.selectedCoffeeBeanIds;
 
     return (
       <div className="AppPage">

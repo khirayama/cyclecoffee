@@ -2,15 +2,14 @@ import * as express from 'express';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { IAction, ICoffeeBean, IShop } from 'interfaces';
+import { IAction, ICoffeeBean, IShop, IState } from 'interfaces';
 import { IProps as IShopPageProps, ShopPage } from 'presentations/components/ShopPage';
 import { generateLayoutProps, ILayoutProps } from 'presentations/utils/generateLayoutProps';
 import { CoffeeBean } from 'services/CoffeeBean';
 import { Shop } from 'services/Shop';
 import { Provider } from 'utils/Container';
 import { Store } from 'utils/Store';
-import { reducer } from 'presentations/pages/shops/show/reducer';
-import { IState } from 'presentations/pages/shops/show/interfaces';
+import { reducer } from 'reducers';
 
 export function shopHandler(req: express.Request, res: express.Response): void {
   Promise.all([Shop.find(req.params.id), CoffeeBean.fetch()]).then((result: [IShop, ICoffeeBean[]]) => {
@@ -23,7 +22,7 @@ export function shopHandler(req: express.Request, res: express.Response): void {
       coffeeBeans,
     };
 
-    const store: Store<IState, IAction> = new Store(state, reducer);
+    const store: Store<Partial<IState>, IAction> = new Store(state, reducer);
     const props: ILayoutProps = generateLayoutProps();
     props.path = req.originalUrl;
     props.route = req.route.path;

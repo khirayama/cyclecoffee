@@ -22,6 +22,17 @@ export interface IAction {
   error?: any;
 }
 
+export interface IState {
+  isSignedIn: boolean;
+  plans: IPlan[];
+  coffeeBean: ICoffeeBean;
+  coffeeBeans: ICoffeeBean[];
+  shops: IShop[];
+  shop: IShop;
+  isSkipped: boolean;
+  selectedCoffeeBeanIds: string[];
+}
+
 export interface IPlan {
   id: string;
   name: string;

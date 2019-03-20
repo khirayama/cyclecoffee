@@ -15,24 +15,26 @@ export class CoffeeBeansPage extends React.Component<IProps, {}> {
       <div className="CoffeeBeansPage">
         <div className="CoffeeBeansPage--Content">
           <ul className="CoffeeBeansPage--Content--CoffeeBeanList">
-            {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
-              return (
-                <li key={coffeeBean.id} className="CoffeeBeansPage--Content--CoffeeBeanList--Item">
-                  <a href={`/coffee-beans/${coffeeBean.id}`}>
-                    <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Image">
-                      <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Image--Placeholder">
-                        <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+            {coffeeBeans.map(
+              (coffeeBean: ICoffeeBean): JSX.Element => {
+                return (
+                  <li key={coffeeBean.id} className="CoffeeBeansPage--Content--CoffeeBeanList--Item">
+                    <a href={`/coffee-beans/${coffeeBean.id}`}>
+                      <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Image">
+                        <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Image--Placeholder">
+                          <img src={coffeeBean.imageUrl} alt={coffeeBean.name} />
+                        </div>
                       </div>
-                    </div>
-                    <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Content">
-                      <div>{coffeeBean.name}</div>
-                      <div>{coffeeBean.description}</div>
-                      <div>{coffeeBean.shopId}</div>
-                    </div>
-                  </a>
-                </li>
-              );
-            })}
+                      <div className="CoffeeBeansPage--Content--CoffeeBeanList--Item--Content">
+                        <div>{coffeeBean.name}</div>
+                        <div>{coffeeBean.description}</div>
+                        <div>{coffeeBean.shopId}</div>
+                      </div>
+                    </a>
+                  </li>
+                );
+              },
+            )}
           </ul>
         </div>
         <Navigation pathname="/" />
