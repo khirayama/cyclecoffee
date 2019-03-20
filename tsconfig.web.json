@@ -1,6 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": [
-    "src/index.server.tsx"
-  ]
+  "exclude": ["src/index.server.tsx"]
 }
