@@ -54,6 +54,10 @@ function signOutMockHandler(req: express.Request, res: express.Response): void {
   res.redirect(req.headers.referer);
 }
 
+function helthCheckHandler(req: express.Request, res: express.Response): void {
+  res.json({ status: 'OK' });
+}
+
 const web: express.Router = express.Router();
 const api: express.Router = express.Router();
 
@@ -66,7 +70,8 @@ web
   .get('/signout', signOutMockHandler)
   .get('/coffee-beans', coffeeBeansHandler)
   .get('/coffee-beans/:id', coffeeBeanHandler)
-  .get('/shops/:id', shopHandler);
+  .get('/shops/:id', shopHandler)
+  .get('/helth-check', helthCheckHandler);
 api
   .get('/coffee-beans', coffeeBeansAPIHandler)
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
