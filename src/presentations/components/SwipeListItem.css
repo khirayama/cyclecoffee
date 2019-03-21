@@ -1,0 +1,7 @@
+.SwipeListItem {
+  $width: 100%;
+  flex: 1;
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+}

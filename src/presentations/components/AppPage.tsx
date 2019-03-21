@@ -4,6 +4,8 @@ import { ICoffeeBean, IPlan, IShop } from 'interfaces';
 import { CoffeeBeanCard } from 'presentations/components/CoffeeBeanCard';
 import { Navigation } from 'presentations/components/Navigation';
 import { ShopCard } from 'presentations/components/ShopCard';
+import { SwipeList } from 'presentations/components/SwipeList';
+import { SwipeListItem } from 'presentations/components/SwipeListItem';
 
 export interface IProps {
   isSignedIn: boolean;
@@ -31,15 +33,17 @@ export class AppPage extends React.Component<IProps> {
               3月10日 12:00 まで
             </span>
           </div>
-          <ul className="AppPage--Content--CoffeeBeanList">
-            {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
-              return (
-                <li key={coffeeBean.id} className="AppPage--Content--CoffeeBeanList--Item">
-                  <CoffeeBeanCard coffeeBean={coffeeBean} />
-                </li>
-              );
-            })}
-          </ul>
+          <div className="AppPage--Content--CoffeeBeanList">
+            <SwipeList>
+              {coffeeBeans.map((coffeeBean: ICoffeeBean) => {
+                return (
+                  <SwipeListItem key={coffeeBean.id}>
+                    <CoffeeBeanCard coffeeBean={coffeeBean} />
+                  </SwipeListItem>
+                );
+              })}
+            </SwipeList>
+          </div>
           <div className="AppPage--Content--Shop">
             <ShopCard shop={shops[0]} />
           </div>

@@ -1,0 +1,7 @@
+.SwipeList {
+  display: flex;
+  width: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: auto;
+  will-change: transform;
+}

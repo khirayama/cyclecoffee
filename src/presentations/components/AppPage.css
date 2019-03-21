@@ -3,6 +3,8 @@
 @import 'components/CoffeeBeanSelectButton';
 @import 'components/ShopCard';
 @import 'components/Navigation';
+@import 'components/SwipeList';
+@import 'components/SwipeListItem';
 
 .AppPage {
   $height-header: 65px;
@@ -39,21 +41,7 @@
     }
 
     .AppPage--Content--CoffeeBeanList {
-      display: flex;
-      width: 100%;
-      /* overflow: visible; */
-      overflow: scroll;
-      -webkit-overflow-scrolling: auto;
-      will-change: transform;
-
-      .AppPage--Content--CoffeeBeanList--Item {
-        $width: 100%;
-        flex: 1;
-        width: $width;
-        min-width: $width;
-        max-width: $width;
-        padding: 12px;
-      }
+      padding: 12px;
     }
 
     .AppPage--Content--Shop {
