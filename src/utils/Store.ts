@@ -32,7 +32,7 @@ export class Store<T, P> {
   }
 
   public getState(): T {
-    return this.clone(this.state);
+    return this.cloneDeep(this.state);
   }
 
   public dispatch(action: P): void {
@@ -47,7 +47,7 @@ export class Store<T, P> {
     this.removeListener(EVENT_CHANGE, listener);
   }
 
-  private clone(obj: T): T {
+  private cloneDeep(obj: T): T {
     return JSON.parse(JSON.stringify(obj));
   }
 
@@ -92,7 +92,7 @@ export class Store<T, P> {
     this.addListener(
       ACTION_DISPATCH,
       (action: P): void => {
-        const nextState: T = this.reducer(this.clone(this.state), action);
+        const nextState: T = this.reducer(this.cloneDeep(this.state), action);
 
         this.state = nextState;
 
