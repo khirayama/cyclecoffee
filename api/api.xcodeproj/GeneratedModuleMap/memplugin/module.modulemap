@@ -1,0 +1,4 @@
+module memplugin {
+    umbrella "/Users/st21009/Work/cyclecoffee/api/.build/checkouts/omr-agentcore-8137216057005619169/src/memplugin/include"
+    export *
+}
