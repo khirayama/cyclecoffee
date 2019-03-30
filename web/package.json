@@ -46,8 +46,8 @@
     "express-useragent": "1.0.12",
     "morgan": "1.9.1",
     "pug": "2.0.3",
-    "react": "16.8.4",
-    "react-dom": "16.8.4"
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
   },
   "devDependencies": {
     "@hint/formatter-codeframe": "2.0.1",
