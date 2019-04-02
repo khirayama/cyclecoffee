@@ -1,3 +1,30 @@
+# Api for cycleCoffee
+
+## Getting started
+
+#### Mac
+
+1. Clone this repository and change directory to under /.api
+
+2. Run following command
+
+```sh
+./update.sh
+```
+
+3. Open api.xcodeproj
+
+4. Run
+
+#### Linux
+
+```sh
+swift build
+.build/debug/api
+```
+
+# Followings are generated one.
+
 ## Scaffolded Swift Kitura server application
 
 This scaffolded application provides a starting point for creating Swift applications running on [Kitura](http://www.kitura.io/).
