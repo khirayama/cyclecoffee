@@ -4,7 +4,7 @@
 
 #### Mac
 
-1. Clone this repository and change directory to under /.api
+1. Clone this repository and change directory to under /api
 
 2. Run following command
 
