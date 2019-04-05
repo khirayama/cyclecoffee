@@ -4,6 +4,15 @@
 
 #### Mac
 
+0. Make sure followings are installed
+
+```sh
+brew install pkg-config mongo-c-driver
+```
+
+And you are working with Swift 4.x
+(We cannot build with Swift 5 now...)
+
 1. Clone this repository and change directory to under /api
 
 2. Run following command

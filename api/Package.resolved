@@ -128,6 +128,24 @@
         }
       },
       {
+        "package": "MongoSwift",
+        "repositoryURL": "https://github.com/mongodb/mongo-swift-driver.git",
+        "state": {
+          "branch": null,
+          "revision": "11a8870f35ac5717057a228f029d31f4481bab6f",
+          "version": "0.0.9"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "e9d769113660769a4d9dd3afb855562c0b7ae7b0",
+          "version": "7.3.4"
+        }
+      },
+      {
         "package": "omr-agentcore",
         "repositoryURL": "https://github.com/RuntimeTools/omr-agentcore",
         "state": {
@@ -137,12 +155,30 @@
         }
       },
       {
+        "package": "bson",
+        "repositoryURL": "https://github.com/mongodb/swift-bson",
+        "state": {
+          "branch": null,
+          "revision": "87b458f55ba66f20305341d9d138e47dbcc92da7",
+          "version": "2.0.0"
+        }
+      },
+      {
         "package": "CloudFoundryEnv",
         "repositoryURL": "https://github.com/IBM-Swift/Swift-cfenv.git",
         "state": {
           "branch": null,
           "revision": "ec441a9af1b2995dcc697db75686ae76a034b33f",
           "version": "6.0.2"
+        }
+      },
+      {
+        "package": "mongoc",
+        "repositoryURL": "https://github.com/mongodb/swift-mongoc",
+        "state": {
+          "branch": null,
+          "revision": "e503b50210dae2cf0220474c2f12087830150e9f",
+          "version": "2.0.0"
         }
       },
       {
