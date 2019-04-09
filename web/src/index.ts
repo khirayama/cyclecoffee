@@ -14,7 +14,7 @@ import {
   plansAPIHandler,
   shopAPIHandler,
   shopsAPIHandler,
-} from 'handlers/apiMockHandlers';
+} from 'handlers/api/mockHandlers';
 import { appHandler } from 'handlers/web/appHandler';
 import { coffeeBeanHandler } from 'handlers/web/coffeeBeanHandler';
 import { coffeeBeansHandler } from 'handlers/web/coffeeBeansHandler';
