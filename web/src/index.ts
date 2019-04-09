@@ -93,7 +93,10 @@ app
   .use(bodyParser.json())
   .use(cookieParser());
 
-app.use('/', web).use('/auth', auth).use('/api', api);
+app
+  .use('/', web)
+  .use('/auth', auth)
+  .use('/api', api);
 
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
 app.listen(APP_SERVER_PORT, () => {
