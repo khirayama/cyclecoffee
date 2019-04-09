@@ -1,3 +1,0 @@
-.build/							usr/src/api
-terraform/scripts/install.sh	usr/src/api
-terraform/scripts/start.sh		usr/src/api
