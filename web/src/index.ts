@@ -91,9 +91,7 @@ app
   .use(express.static(path.join(__dirname, 'assets')))
   .use(express.static(path.join(__dirname, 'public')))
   .use(bodyParser.json())
-  .use(cookieParser());
-
-app
+  .use(cookieParser())
   .use('/', web)
   .use('/auth', auth)
   .use('/api', api);
