@@ -15,11 +15,11 @@ import {
   shopAPIHandler,
   shopsAPIHandler,
 } from 'handlers/apiMockHandlers';
-import { appHandler } from 'handlers/appHandler';
-import { coffeeBeanHandler } from 'handlers/coffeeBeanHandler';
-import { coffeeBeansHandler } from 'handlers/coffeeBeansHandler';
-import { welcomeHandler } from 'handlers/welcomeHandler';
-import { shopHandler } from 'handlers/shopHandler';
+import { appHandler } from 'handlers/web/appHandler';
+import { coffeeBeanHandler } from 'handlers/web/coffeeBeanHandler';
+import { coffeeBeansHandler } from 'handlers/web/coffeeBeansHandler';
+import { welcomeHandler } from 'handlers/web/welcomeHandler';
+import { shopHandler } from 'handlers/web/shopHandler';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
   // Auth
