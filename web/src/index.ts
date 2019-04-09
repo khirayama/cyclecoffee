@@ -15,6 +15,7 @@ import {
   shopAPIHandler,
   shopsAPIHandler,
 } from 'handlers/api/mockHandlers';
+import { createSessionHandler } from 'handlers/auth';
 import { appHandler } from 'handlers/web/appHandler';
 import { coffeeBeanHandler } from 'handlers/web/coffeeBeanHandler';
 import { coffeeBeansHandler } from 'handlers/web/coffeeBeansHandler';
@@ -59,6 +60,7 @@ function helthCheckHandler(req: express.Request, res: express.Response): void {
 }
 
 const web: express.Router = express.Router();
+const auth: express.Router = express.Router();
 const api: express.Router = express.Router();
 
 web
@@ -72,6 +74,7 @@ web
   .get('/coffee-beans/:id', coffeeBeanHandler)
   .get('/shops/:id', shopHandler)
   .get('/helth-check', helthCheckHandler);
+auth.post('/sessions', createSessionHandler);
 api
   .get('/coffee-beans', coffeeBeansAPIHandler)
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
@@ -90,7 +93,7 @@ app
   .use(bodyParser.json())
   .use(cookieParser());
 
-app.use(web).use('/api', api);
+app.use('/', web).use('/auth', auth).use('/api', api);
 
 const APP_SERVER_PORT: number = Number(process.env.PORT || '3030');
 app.listen(APP_SERVER_PORT, () => {
