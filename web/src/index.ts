@@ -86,7 +86,11 @@ api
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
   .get('/shops', shopsAPIHandler)
   .get('/shops/:id', shopAPIHandler)
-  .get('/plans', plansAPIHandler);
+  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
+  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
+  .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
+  .get('/plans', plansAPIHandler)
+  .get('/subscriptions', (req: express.Request, res: express.Response) => res.json('subscriptionsHandler'));
 
 const app: express = express();
 
