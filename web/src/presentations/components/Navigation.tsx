@@ -11,7 +11,7 @@ export function Navigation(props: { pathname: string }): JSX.Element {
     {
       name: '履歴',
       icon: 'history',
-      href: '/histories',
+      href: '/orders',
     },
     {
       name: 'プロフィール',

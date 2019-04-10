@@ -70,12 +70,17 @@ web
   .get('/welcome', welcomeHandler)
   .get('/signin', signInHandler)
   .get('/signup', signInMockHandler)
-  .get('/signout', signOutMockHandler)
   .get('/coffee-beans', coffeeBeansHandler)
   .get('/coffee-beans/:id', coffeeBeanHandler)
   .get('/shops/:id', shopHandler)
+  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
+  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
+  .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
   .get('/helth-check', helthCheckHandler);
-auth.post('/sessions', createSessionHandler);
+auth
+  .post('/sessions', createSessionHandler)
+  .delete('/session', (req: express.Request, res: express.Response) => res.json('deleteSessionHandler'))
+  .delete('/user', (req: express.Request, res: express.Response) => res.json('deleteUserHandler'));
 api
   .get('/coffee-beans', coffeeBeansAPIHandler)
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
