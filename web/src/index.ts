@@ -63,6 +63,7 @@ function helthCheckHandler(req: express.Request, res: express.Response): void {
 const web: express.Router = express.Router();
 const auth: express.Router = express.Router();
 const api: express.Router = express.Router();
+const admin: express.Router = express.Router();
 
 web
   .use(preHandler)
@@ -91,6 +92,11 @@ api
   .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
   .get('/plans', plansAPIHandler)
   .get('/subscriptions', (req: express.Request, res: express.Response) => res.json('subscriptionsHandler'));
+admin
+  .post('/coffee-beans', (req: express.Request, res: express.Response) => res.json('createCoffeeBeanHandler'))
+  .put('/coffee-beans/:id', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
+  .post('/shops', (req: express.Request, res: express.Response) => res.json('createShopHandler'))
+  .put('/shops/:id', (req: express.Request, res: express.Response) => res.json('editShopHandler'));
 
 const app: express = express();
 
