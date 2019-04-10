@@ -51,6 +51,10 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
   res.redirect('/');
 }
 
+function adminAuthMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
+  next();
+}
+
 const web: express.Router = express.Router();
 const auth: express.Router = express.Router();
 const api: express.Router = express.Router();
@@ -69,25 +73,42 @@ web
   .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
   .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
   .get('/helth-check', (req: express.Request, res: express.Response) => res.json({ status: 'OK' }));
+admin
+  .use(adminAuthMockHandler)
+  .get('/coffee-beans/new', (req: express.Request, res: express.Response) => res.json('newCoffeeBeanHandler'))
+  .get('/coffee-beans/:id/edit', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
+  .get('/shops/new', (req: express.Request, res: express.Response) => res.json('newCoffeeBeanHandler'))
+  .get('/shops/:id/edit', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
+  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersAdminHandler'))
+  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderAdminHandler'));
 auth
   .post('/sessions', createSessionHandler)
   .delete('/session', (req: express.Request, res: express.Response) => res.json('deleteSessionHandler'))
   .delete('/user', (req: express.Request, res: express.Response) => res.json('deleteUserHandler'));
 api
+  .post('/coffee-beans', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createCoffeeBeanHandler'))
   .get('/coffee-beans', coffeeBeansAPIHandler)
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
+  .put('/coffee-beans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updateCoffeeBeanHandler'))
+  .delete('/coffee-beans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyCoffeeBeanHandler'))
+  .post('/shops', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createShopHandler'))
   .get('/shops', shopsAPIHandler)
   .get('/shops/:id', shopAPIHandler)
+  .put('/shops/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updateShopHandler'))
+  .delete('/shops/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyShopHandler'))
+  .post('/orders', (req: express.Request, res: express.Response) => res.json('createOrderHandler'))
   .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
   .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
+  .delete('/orders', (req: express.Request, res: express.Response) => res.json('destroyOrderHandler'))
+  .post('/profile', (req: express.Request, res: express.Response) => res.json('createProfileHandler'))
   .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
+  .put('/profile', (req: express.Request, res: express.Response) => res.json('updateProfileHandler'))
+  .delete('/profile', (req: express.Request, res: express.Response) => res.json('destroyProfileHandler'))
+  .post('/plans', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createPlanHandler'))
   .get('/plans', plansAPIHandler)
+  .put('/plans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updatePlanHandler'))
+  .delete('/plans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyPlanHandler'))
   .get('/subscriptions', (req: express.Request, res: express.Response) => res.json('subscriptionsHandler'));
-admin
-  .post('/coffee-beans', (req: express.Request, res: express.Response) => res.json('createCoffeeBeanHandler'))
-  .put('/coffee-beans/:id', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
-  .post('/shops', (req: express.Request, res: express.Response) => res.json('createShopHandler'))
-  .put('/shops/:id', (req: express.Request, res: express.Response) => res.json('editShopHandler'));
 
 const app: express = express();
 
@@ -100,6 +121,7 @@ app
   .use(bodyParser.json())
   .use(cookieParser())
   .use('/', web)
+  .use('/admin', admin)
   .use('/auth', auth)
   .use('/api', api);
 
