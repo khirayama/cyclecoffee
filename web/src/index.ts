@@ -21,6 +21,7 @@ import { coffeeBeanHandler } from 'handlers/web/coffeeBeanHandler';
 import { coffeeBeansHandler } from 'handlers/web/coffeeBeansHandler';
 import { welcomeHandler } from 'handlers/web/welcomeHandler';
 import { shopHandler } from 'handlers/web/shopHandler';
+import { signInHandler } from 'handlers/web/signInHandler';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
   // Auth
@@ -67,7 +68,7 @@ web
   .use(preHandler)
   .get('/', authMockHandler, appHandler)
   .get('/welcome', welcomeHandler)
-  .get('/signin', signInMockHandler)
+  .get('/signin', signInHandler)
   .get('/signup', signInMockHandler)
   .get('/signout', signOutMockHandler)
   .get('/coffee-beans', coffeeBeansHandler)
