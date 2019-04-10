@@ -51,10 +51,6 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
   res.redirect('/');
 }
 
-function helthCheckHandler(req: express.Request, res: express.Response): void {
-  res.json({ status: 'OK' });
-}
-
 const web: express.Router = express.Router();
 const auth: express.Router = express.Router();
 const api: express.Router = express.Router();
@@ -72,7 +68,7 @@ web
   .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
   .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
   .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
-  .get('/helth-check', helthCheckHandler);
+  .get('/helth-check', (req: express.Request, res: express.Response) => res.json({ status: 'OK' }));
 auth
   .post('/sessions', createSessionHandler)
   .delete('/session', (req: express.Request, res: express.Response) => res.json('deleteSessionHandler'))
