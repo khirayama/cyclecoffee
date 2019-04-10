@@ -51,11 +51,6 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
   res.redirect('/');
 }
 
-function signOutMockHandler(req: express.Request, res: express.Response): void {
-  res.clearCookie('session');
-  res.redirect(req.headers.referer);
-}
-
 function helthCheckHandler(req: express.Request, res: express.Response): void {
   res.json({ status: 'OK' });
 }
