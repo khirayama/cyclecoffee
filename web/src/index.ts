@@ -24,20 +24,17 @@ import { shopHandler } from 'handlers/web/shopHandler';
 import { signInHandler } from 'handlers/web/signInHandler';
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
-  // Auth
-  req.isSignedIn = !!req.cookies.session;
   // Template Engine
-  req.compiledFunction = pug.compileFile(path.resolve('dist', 'presentations', 'application', 'Layout.pug'), {
-    basedir: path.resolve('dist', 'presentations'),
-  });
+  const basedir: string = path.resolve('dist', 'presentations');
+  req.compiledFunction = pug.compileFile(path.resolve('dist', 'presentations', 'application', 'Layout.pug'), { basedir });
   next();
 }
 
 function authMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
-  if (!req.isSignedIn) {
-    res.redirect('/welcome');
-    return;
-  }
+  next();
+}
+
+function adminAuthMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
   next();
 }
 
@@ -49,10 +46,6 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
   };
   res.cookie('session', session);
   res.redirect('/');
-}
-
-function adminAuthMockHandler(req: express.Request, res: express.Response, next: express.Next): void {
-  next();
 }
 
 const web: express.Router = express.Router();
