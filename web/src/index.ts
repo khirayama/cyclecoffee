@@ -26,7 +26,8 @@ import { signInHandler } from 'handlers/web/signInHandler';
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
   // Template Engine
   const basedir: string = path.resolve('dist', 'presentations');
-  req.compiledFunction = pug.compileFile(path.resolve('dist', 'presentations', 'application', 'Layout.pug'), { basedir });
+  const layoutPath: string = path.resolve('dist', 'presentations', 'application', 'Layout.pug');
+  req.compiledFunction = pug.compileFile(layoutPath, { basedir });
   next();
 }
 
@@ -48,10 +49,13 @@ function signInMockHandler(req: express.Request, res: express.Response): void {
   res.redirect('/');
 }
 
+function tmpHandler(req: express.Request, res: express.Response): void {
+  res.json({ path: 'tmp' });
+}
+
 const web: express.Router = express.Router();
 const auth: express.Router = express.Router();
 const api: express.Router = express.Router();
-const admin: express.Router = express.Router();
 
 web
   .use(preHandler)
@@ -62,46 +66,44 @@ web
   .get('/coffee-beans', coffeeBeansHandler)
   .get('/coffee-beans/:id', coffeeBeanHandler)
   .get('/shops/:id', shopHandler)
-  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
-  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
-  .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
+  .get('/orders', authMockHandler, tmpHandler)
+  .get('/orders/:id', authMockHandler, tmpHandler)
+  .get('/profile', authMockHandler, tmpHandler)
+  .get('/coffee-beans/new', adminAuthMockHandler, tmpHandler)
+  .get('/coffee-beans/:id/edit', adminAuthMockHandler, tmpHandler)
+  .get('/shops/new', adminAuthMockHandler, tmpHandler)
+  .get('/shops/:id/edit', adminAuthMockHandler, tmpHandler)
+  .get('/admin/orders', adminAuthMockHandler, tmpHandler)
+  .get('/admin/orders/:id', adminAuthMockHandler, tmpHandler)
   .get('/helth-check', (req: express.Request, res: express.Response) => res.json({ status: 'OK' }));
-admin
-  .use(adminAuthMockHandler)
-  .get('/coffee-beans/new', (req: express.Request, res: express.Response) => res.json('newCoffeeBeanHandler'))
-  .get('/coffee-beans/:id/edit', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
-  .get('/shops/new', (req: express.Request, res: express.Response) => res.json('newCoffeeBeanHandler'))
-  .get('/shops/:id/edit', (req: express.Request, res: express.Response) => res.json('editCoffeeBeanHandler'))
-  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersAdminHandler'))
-  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderAdminHandler'));
 auth
   .post('/sessions', createSessionHandler)
   .delete('/session', (req: express.Request, res: express.Response) => res.json('deleteSessionHandler'))
   .delete('/user', (req: express.Request, res: express.Response) => res.json('deleteUserHandler'));
 api
-  .post('/coffee-beans', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createCoffeeBeanHandler'))
+  .post('/coffee-beans', adminAuthMockHandler, tmpHandler)
   .get('/coffee-beans', coffeeBeansAPIHandler)
   .get('/coffee-beans/:id', coffeeBeanAPIHandler)
-  .put('/coffee-beans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updateCoffeeBeanHandler'))
-  .delete('/coffee-beans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyCoffeeBeanHandler'))
-  .post('/shops', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createShopHandler'))
+  .put('/coffee-beans/:id', adminAuthMockHandler, tmpHandler)
+  .delete('/coffee-beans/:id', adminAuthMockHandler, tmpHandler)
+  .post('/shops', adminAuthMockHandler, tmpHandler)
   .get('/shops', shopsAPIHandler)
   .get('/shops/:id', shopAPIHandler)
-  .put('/shops/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updateShopHandler'))
-  .delete('/shops/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyShopHandler'))
-  .post('/orders', (req: express.Request, res: express.Response) => res.json('createOrderHandler'))
-  .get('/orders', (req: express.Request, res: express.Response) => res.json('ordersHandler'))
-  .get('/orders/:id', (req: express.Request, res: express.Response) => res.json('orderHandler'))
-  .delete('/orders', (req: express.Request, res: express.Response) => res.json('destroyOrderHandler'))
-  .post('/profile', (req: express.Request, res: express.Response) => res.json('createProfileHandler'))
-  .get('/profile', (req: express.Request, res: express.Response) => res.json('profileHandler'))
-  .put('/profile', (req: express.Request, res: express.Response) => res.json('updateProfileHandler'))
-  .delete('/profile', (req: express.Request, res: express.Response) => res.json('destroyProfileHandler'))
-  .post('/plans', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('createPlanHandler'))
+  .put('/shops/:id', adminAuthMockHandler, tmpHandler)
+  .delete('/shops/:id', adminAuthMockHandler, tmpHandler)
+  .post('/orders', tmpHandler)
+  .get('/orders', tmpHandler)
+  .get('/orders/:id', tmpHandler)
+  .delete('/orders', tmpHandler)
+  .post('/profile', tmpHandler)
+  .get('/profile', tmpHandler)
+  .put('/profile', tmpHandler)
+  .delete('/profile', tmpHandler)
+  .post('/plans', adminAuthMockHandler, tmpHandler)
   .get('/plans', plansAPIHandler)
-  .put('/plans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('updatePlanHandler'))
-  .delete('/plans/:id', adminAuthMockHandler, (req: express.Request, res: express.Response) => res.json('destroyPlanHandler'))
-  .get('/subscriptions', (req: express.Request, res: express.Response) => res.json('subscriptionsHandler'));
+  .put('/plans/:id', adminAuthMockHandler, tmpHandler)
+  .delete('/plans/:id', adminAuthMockHandler, tmpHandler)
+  .get('/subscriptions', tmpHandler);
 
 const app: express = express();
 
@@ -114,7 +116,6 @@ app
   .use(bodyParser.json())
   .use(cookieParser())
   .use('/', web)
-  .use('/admin', admin)
   .use('/auth', auth)
   .use('/api', api);
 
