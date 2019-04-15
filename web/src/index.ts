@@ -7,6 +7,7 @@ import * as express from 'express';
 import * as useragent from 'express-useragent';
 import * as logger from 'morgan';
 import * as pug from 'pug';
+import * as mongoose from 'mongoose';
 
 import {
   coffeeBeanAPIHandler,
@@ -22,6 +23,9 @@ import { coffeeBeansHandler } from 'handlers/web/coffeeBeansHandler';
 import { welcomeHandler } from 'handlers/web/welcomeHandler';
 import { shopHandler } from 'handlers/web/shopHandler';
 import { signInHandler } from 'handlers/web/signInHandler';
+
+const MONGODB = 'mongodb://127.0.0.1:27017/development';
+mongoose.connect(MONGODB, { useNewUrlParser: true });
 
 function preHandler(req: express.Request, res: express.Response, next: express.NextFunction): void {
   // Template Engine
